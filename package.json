@@ -1,9 +1,7 @@
 {
   "name": "react-redux",
   "homepage": "http://vitaliy-petrenko.github.io/guitar-trainer",
-  "version",
-  :
-  "0.1.0",
+  "version":"0.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.5.1",
