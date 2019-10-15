@@ -1,0 +1,56 @@
+$blackKeyWidth: 36px;
+
+.piano {
+  margin: auto;
+  display: flex;
+  height: 200px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, .4);
+}
+
+.piano__key {
+  flex: 1;
+  background: #fff;
+  height: 100%;
+  border-left: 1px solid #000;
+  position: relative;
+
+  &:first-child {
+    border-left: 0;
+  }
+
+  @mixin blackKey {
+    border-left: 0;
+    position: relative;
+    flex: 0;
+    z-index: 2;
+    height: 65%;
+
+    &:before {
+      content: '';
+      position: absolute;
+      width: $blackKeyWidth;
+      background: #000;
+      transform: translateX(-50%);
+      height: 100%;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+      border-radius: 0 0 2px 2px;
+    }
+  }
+
+  &:nth-child(12n + 2),
+  &:nth-child(12n + 4),
+  &:nth-child(12n + 7),
+  &:nth-child(12n + 9),
+  &:nth-child(12n + 11) {
+    @include blackKey;
+  }
+}
+
+.piano__note {
+  position: absolute;
+  z-index: 2;
+  bottom: 12px;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  text-align: center;
+}

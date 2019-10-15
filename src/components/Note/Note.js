@@ -1,0 +1,22 @@
+import React from 'react';
+import './Note.scss';
+
+export default ({ name = 'C#', octave = 1, isSimilar = false, isActive = true, isInScale = true }) => {
+  const classNames = ['note', `note--${name[0].toLowerCase()}`];
+
+  if (isSimilar) {
+    classNames.push('is-similar');
+  }
+
+  if (isActive) {
+    classNames.push('is-active');
+  }
+
+  if (!isInScale) {
+    classNames.push('is-disabled');
+  }
+
+  return (
+    <div className={classNames.join(' ')}>{name}{octave}</div>
+  )
+};

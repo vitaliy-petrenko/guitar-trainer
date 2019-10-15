@@ -1,0 +1,53 @@
+@import "../scss/variables";
+
+html, body {
+  overflow: hidden;
+}
+
+html {
+  font-family: Monospace, sans-serif;
+  font-size: 13px;
+  background: #121212;
+  color: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@mixin panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.application__side {
+  width: $sidebarWidth;
+  background: #212121;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  @include panel;
+}
+
+.application__main {
+  @include panel;
+  left: $sidebarWidth;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.board-container {
+  padding: 0 32px;
+  margin: auto;
+  user-select: none;
+  max-width: 1400px;
+}
+
+.row {
+  & + & {
+    margin-top: 32px;
+  }
+}

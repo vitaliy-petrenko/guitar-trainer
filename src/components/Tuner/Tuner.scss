@@ -1,0 +1,52 @@
+@import '../../scss/variables';
+@import '../../scss/keyframes';
+
+.tuner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+
+  .note {
+    &.is-active {
+      animation: pulse .4s infinite;
+    }
+  }
+
+  .note:not(.is-active) {
+    filter: grayscale(1);
+  }
+}
+
+.tuner__arrow {
+  $size: 8px;
+
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: $size 0 $size 2*$size;
+    border-color: transparent transparent transparent currentColor;
+  }
+
+  .tuner__col:last-child &:after {
+    border-width: $size 2*$size $size 0;
+    border-color: transparent currentColor transparent transparent;
+  }
+
+  &.is-active:after {
+    color: #ff5f61;
+    animation: pulse .4s infinite;
+  }
+}
+
+.tuner__col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

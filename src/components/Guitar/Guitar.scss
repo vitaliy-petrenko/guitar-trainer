@@ -1,0 +1,122 @@
+$stringHeight: 48px;
+
+.guitar {
+  background: #443125;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, .4);
+}
+
+.guitar__string {
+  height: $stringHeight;
+  display: flex;
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #85827e;
+    border-bottom: 1px solid #dad5ce;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 1);
+    pointer-events: none;
+  }
+
+  @for $i from 1 through 7 {
+    &:nth-child(#{$i}):before {
+      transform: scaleY(1.1 - (1 - $i/10)) translateY(-50%);
+    }
+  }
+
+  &:nth-child(1) {
+    $keys: I, II, III, IV, V, VI, VII, VIII, IX, X, XI, XII, XIII, XIV, XV, XVI, XVII, XVIII, XIX, XX, XXI, XXII, XXIII, XXIV;
+
+    .guitar__cell:before {
+      position: absolute;
+      content: '';
+      top: -$stringHeight/2;
+      width: 100%;
+      text-align: center;
+    }
+
+    @for $i from 1 through length($keys) {
+      .guitar__cell:nth-child(#{$i+1}):before {
+        content: '#{nth($keys, $i)}';
+      }
+    }
+  }
+
+  &:nth-child(4) {
+    $pointerSize: 16px;
+
+    @mixin pseudoPointer {
+      content: '';
+      position: absolute;
+      width: $pointerSize;
+      height: $pointerSize;
+      background: #fff;
+      border-radius: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .2), 1px 1px 0 rgba(0, 0, 0, .2);
+      pointer-events: none;
+    }
+
+    .guitar__cell:nth-child(13),
+    .guitar__cell:nth-child(25),
+    .guitar__cell:nth-child(4),
+    .guitar__cell:nth-child(6),
+    .guitar__cell:nth-child(8),
+    .guitar__cell:nth-child(10),
+    .guitar__cell:nth-child(16),
+    .guitar__cell:nth-child(19),
+    .guitar__cell:nth-child(21) {
+      &:after {
+        z-index: 0;
+        top: 0;
+        @include pseudoPointer;
+      }
+    }
+
+    .guitar__cell:nth-child(13),
+    .guitar__cell:nth-child(25) {
+      &:after {
+        top: -$stringHeight;
+      }
+
+      &:before {
+        @include pseudoPointer;
+        top: $stringHeight;
+      }
+
+
+    }
+  }
+}
+
+.guitar__cell {
+  @for $i from 1 through 24 {
+    &:nth-child(#{$i}) {
+      flex: (1 - $i/30) 0 auto;
+    }
+  }
+
+  position: relative;
+  border-left: 2px solid #989898;
+  border-right: 2px solid #767676;
+}
+
+.guitar__note {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3
+}
+
+.guitar__zero {
+  position: relative;
+  flex: 0 0 32px;
+}
