@@ -1,8 +1,9 @@
 import React from 'react';
 import { Drawer, Fab, Hidden, makeStyles } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Settings';
+import CloseIcon from '@material-ui/icons/Close';
 
-const drawerWidth = 240;
+const SIDEBAR_WIDTH = 300;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -10,16 +11,16 @@ const useStyles = makeStyles(theme => ({
   },
   drawer: {
     [theme.breakpoints.up('md')]: {
-      width: drawerWidth,
+      width: SIDEBAR_WIDTH,
       flexShrink: 0,
     },
   },
 
   menuButton: {
-    top: theme.spacing(3),
-    left: theme.spacing(3),
+    left: theme.spacing(2),
+    top: theme.spacing(2),
     position: 'fixed',
-    zIndex: 10,
+    zIndex: theme.zIndex.modal + 1,
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
@@ -28,13 +29,15 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     background: '#212121',
-    width: drawerWidth,
+    width: SIDEBAR_WIDTH,
+    [theme.breakpoints.down('md')]: {
+      paddingTop: theme.spacing(8),
+    },
   },
   content: {
     flexGrow: 1,
     minWidth: 1100,
     [theme.breakpoints.down('md')]: {
-      paddingLeft: theme.spacing(6),
       paddingTop: theme.spacing(6),
     },
   },
@@ -55,8 +58,12 @@ export default ({ Sidebar, Main }) => {
     <div className={classes.root}>
 
       <div className={classes.menuButton}>
-        <Fab size='small' position='fixed' color='secondary' onClick={handleDrawerToggle} aria-label='edit'>
-          <MenuIcon/>
+        <Fab size='small' color={mobileOpen ? 'default' : 'secondary'} onClick={handleDrawerToggle} aria-label='edit'>
+          {mobileOpen ? (
+            <CloseIcon/>
+          ) : (
+            <MenuIcon/>
+          )}
         </Fab>
       </div>
 
