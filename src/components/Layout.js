@@ -35,7 +35,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: 1200,
     [theme.breakpoints.down('md')]: {
       paddingLeft: theme.spacing(6),
-      paddingTop: theme.spacing(4),
+      paddingTop: theme.spacing(6),
     },
   },
 }));
