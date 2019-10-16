@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.scss';
 import audioService from '../audioCore';
-import SidebarContainer from '../containers/SidebarContainer';
-import MainContainer from '../containers/MainContainer';
+import SidebarContainer from './Sidebar/SidebarContainer';
+import MainContainer from './MainContainer';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme';
 import Layout from './Layout';

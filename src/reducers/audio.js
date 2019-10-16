@@ -1,4 +1,4 @@
-import { ACTION_TYPES, SCALES_NAMES } from '../constants';
+import { ACTION_TYPES, SCALES_KEYS } from '../constants';
 import { generateScale, NOTES } from '../audioCore';
 
 const DEFAULT_DATA = {
@@ -8,7 +8,7 @@ const DEFAULT_DATA = {
   isMicActive: false,
 
   scale: {
-    name: SCALES_NAMES.MAJOR,
+    name: SCALES_KEYS.MAJOR,
     key: NOTES[0],
   },
 };

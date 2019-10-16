@@ -12,10 +12,22 @@ export const SCALES = {
   // LYDIAN: [],
 };
 
-export const SCALES_NAMES = Object.keys(SCALES).reduce((res, key) => {
+export const SCALES_KEYS = Object.keys(SCALES).reduce((res, key) => {
   res[key] = key;
   return res;
 }, {});
+
+export const SCALES_NAMES = {
+  ALL: 'Show all',
+  MAJOR: 'Major',
+  HARMONIC_MAJOR: 'Harmonic Major',
+  MELODIC_MAJOR: 'Melodic Major',
+  MAJOR_PENTATONIC: 'Major Pentatonic',
+  MINOR: 'Minor',
+  HARMONIC_MINOR: 'Harmonic Minor',
+  MELODIC_MINOR: 'Melodic Minor',
+  MINOR_PENTATONIC: 'Minor Pentatonic',
+};
 
 export const ACTION_TYPES = {
   SET_PLAYING_NOTE: 'SET_PLAYING_NOTE',

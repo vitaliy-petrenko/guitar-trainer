@@ -1,20 +1,9 @@
 @import "../scss/variables";
 
 html {
-
-}
-
-html {
-  font-family: Monospace, sans-serif;
-  font-size: 13px;
   background: #121212;
   color: #fff;
-  min-height: 100%;
-  width: 100%;
-}
-
-body {
-  height: 100%
+  font-size: 13px;
 }
 
 * {
@@ -26,10 +15,4 @@ body {
   margin: 64px auto;
   user-select: none;
   max-width: 1400px;
-}
-
-.row {
-  & + & {
-    margin-top: 32px;
-  }
 }

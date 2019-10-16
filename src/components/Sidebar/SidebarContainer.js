@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
-import Sidebar from '../components/Sidebar/Sidebar';
-import * as audioActions from '../actions/audio';
+import Sidebar from './Sidebar';
+import * as audioActions from '../../actions/audio';
 import { bindActionCreators } from 'redux';
 
 const mapStateToProps = state => {

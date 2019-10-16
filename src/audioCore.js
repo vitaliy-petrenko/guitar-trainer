@@ -70,12 +70,6 @@ class AudioService extends EventEmitter {
                 frequency: frequency,
               };
 
-            if (
-              noteData.octave < 2 ||
-              noteData.octave > 6 ||
-              (noteData.octave === 6 && NOTES.indexOf(noteData.name) > NOTES.indexOf('A'))
-            ) return;
-
             if (note >= 30) {
               this.emit('notesDetected', [noteData]);
             }
