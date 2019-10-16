@@ -32,7 +32,7 @@ const useStyles = makeStyles(theme => ({
   },
   content: {
     flexGrow: 1,
-    minWidth: 1200,
+    minWidth: 1100,
     [theme.breakpoints.down('md')]: {
       paddingLeft: theme.spacing(6),
       paddingTop: theme.spacing(6),

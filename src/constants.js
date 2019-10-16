@@ -18,7 +18,7 @@ export const SCALES_KEYS = Object.keys(SCALES).reduce((res, key) => {
 }, {});
 
 export const SCALES_NAMES = {
-  ALL: 'Show all',
+  ALL: 'Show All',
   MAJOR: 'Major',
   HARMONIC_MAJOR: 'Harmonic Major',
   MELODIC_MAJOR: 'Melodic Major',
