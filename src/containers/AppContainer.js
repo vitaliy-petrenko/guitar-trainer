@@ -1,29 +1,10 @@
 import { connect } from 'react-redux';
 
 import App from '../components/App';
-import * as audioActions from '../actions/audio';
-import { bindActionCreators } from 'redux';
-
-const mapStateToProps = state => {
-  const {
-    playingNote,
-    isMicActive,
-    guitarStringsStartNotes,
-    pianoStartNote,
-    selectedScale,
-  } = state;
-
-  return {
-    playingNote,
-    isMicActive,
-    guitarStringsStartNotes,
-    pianoStartNote,
-    selectedScale,
-  }
-};
+import { setPlayingNote } from '../actions/audio';
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators({ ...audioActions }, dispatch),
+  setPlayingNote: payload => dispatch(setPlayingNote(payload)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
