@@ -2,14 +2,10 @@ import React from 'react';
 import Tuner from '../Tuner/TunerContainer';
 import './Sidebar.scss';
 import audioService from '../../audioCore';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core';
+import { Grid, makeStyles, Paper, Typography } from '@material-ui/core';
 import SelectKey from './SelectKeyContainer';
 import SelectScale from './SelectScaleContainer';
 import { StartRecording } from './StartRecording';
-
 
 const useStyles = makeStyles(theme => ({
   paper: {

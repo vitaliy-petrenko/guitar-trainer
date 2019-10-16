@@ -6,8 +6,9 @@ import Piano from './Piano/Piano';
 import SidebarContainer from '../containers/SidebarContainer';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme';
+import Layout from './Layout';
 
-class App extends React.Component {
+export default class App extends React.Component {
   componentDidMount() {
     audioService.on('notesDetected', (notesData = []) => {
       const
@@ -20,31 +21,30 @@ class App extends React.Component {
 
   render() {
     const
-      { guitarStringsStartNotes, pianoStartNote } = this.props;
+      { guitarStringsStartNotes, pianoStartNote } = this.props,
+      Sidebar = () => (
+        <SidebarContainer/>
+      ),
+      Main = () => (
+        <div className="application__main">
+          <div className="board-container">
+            <Guitar frets={18} startNotes={guitarStringsStartNotes}/>
+          </div>
+          <div className="board-container">
+            <Piano octaves={4} startNote={pianoStartNote}/>
+          </div>
+        </div>
+      );
 
     return (
       <div className='application'>
-        <div className="application__side">
-          <ThemeProvider theme={theme}>
-            <SidebarContainer/>
-          </ThemeProvider>
-        </div>
-
-        <div className="application__main">
-          <div className="row">
-            <div className="board-container">
-              <Guitar frets={18} startNotes={guitarStringsStartNotes}/>
-            </div>
-          </div>
-          <div className="row">
-            <div className="board-container">
-              <Piano octaves={4} startNote={pianoStartNote}/>
-            </div>
-          </div>
-        </div>
+        <ThemeProvider theme={theme}>
+          <Layout
+            Sidebar={Sidebar}
+            Main={Main}
+          />
+        </ThemeProvider>
       </div>
     );
   }
 }
-
-export default App;

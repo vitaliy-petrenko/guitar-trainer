@@ -10,6 +10,7 @@ html {
   background: #121212;
   color: #fff;
   min-height: 100%;
+  width: 100%;
 }
 
 body {
@@ -20,29 +21,9 @@ body {
   box-sizing: border-box;
 }
 
-.application__side {
-  width: $sidebarWidth;
-  background: #212121;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  overflow-y: auto;
-  z-index: 2;
-}
-
-.application__main {
-  margin-left: $sidebarWidth;
-  right: 0;
-  padding: 64px 40px;
-  min-width: 1140px;
-  position: relative;
-  z-index: 1;
-}
-
 .board-container {
-  margin: auto;
+  padding: 0 40px;
+  margin: 64px auto;
   user-select: none;
   max-width: 1400px;
 }

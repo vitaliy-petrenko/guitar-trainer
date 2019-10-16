@@ -1,8 +1,5 @@
 import { NOTES } from '../../audioCore';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
-import InputLabel from '@material-ui/core/InputLabel';
-import Select from '@material-ui/core/Select';
+import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 import React from 'react';
 
 export default ({ selectedScale, onSelect = f => f }) => {
