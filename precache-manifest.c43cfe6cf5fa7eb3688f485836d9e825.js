@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a88bb9d84b5cb0457103beb0a724c407",
+    "revision": "3d2e39adfd24fee28a336394ff19210e",
     "url": "/guitar-trainer/index.html"
   },
   {
-    "revision": "955b3aa1850902731e06",
-    "url": "/guitar-trainer/static/css/main.9a9da4ac.chunk.css"
+    "revision": "361850c6235750f98eb8",
+    "url": "/guitar-trainer/static/css/main.152a66de.chunk.css"
   },
   {
     "revision": "c7dcb4a872b8c3ce6a87",
     "url": "/guitar-trainer/static/js/2.6e2c8eca.chunk.js"
   },
   {
-    "revision": "955b3aa1850902731e06",
-    "url": "/guitar-trainer/static/js/main.82765539.chunk.js"
+    "revision": "361850c6235750f98eb8",
+    "url": "/guitar-trainer/static/js/main.20620215.chunk.js"
   },
   {
     "revision": "da3d6f9fbbffc95ad565",
