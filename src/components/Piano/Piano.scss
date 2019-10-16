@@ -2,12 +2,11 @@ $blackKeyWidth: 32px;
 
 .piano {
   display: flex;
-  justify-content: center;
   height: 200px;
 }
 
 .piano__key {
-  flex: 0 0 44px;
+  flex: 1;
   background: #fff;
   height: 100%;
   border: 1px solid #000;
