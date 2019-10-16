@@ -1,6 +1,6 @@
 import React from 'react';
 import './Piano.scss';
-import { NOTES } from '../../audioCore';
+import { NOTES } from '../../constants';
 import Note from '../Note/NoteContainer';
 
 const Key = ({ name = 'C#', octave = 2 }) => {
@@ -26,7 +26,7 @@ export default ({ octaves = 3, startNote }) => {
   for (let i = 0, note = { ...startNote }; i < keysCount; i++) {
     const noteIndex = NOTES.indexOf(note.name);
 
-    keys.push(<Key key={i} name={note.name} octave={note.octave}/>);
+    keys.push(<Key key={i} name={note.name} octave={octaves === 1 ? null : note.octave}/>);
 
     if (!~noteIndex) continue;
 

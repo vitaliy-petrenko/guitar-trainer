@@ -1,5 +1,5 @@
-import { ACTION_TYPES, SCALES_KEYS } from '../constants';
-import { generateScale, NOTES } from '../audioCore';
+import { ACTION_TYPES, NOTES, SCALES_KEYS } from '../constants';
+import { generateScale } from '../audioCore';
 
 const DEFAULT_DATA = {
   playingNote: {

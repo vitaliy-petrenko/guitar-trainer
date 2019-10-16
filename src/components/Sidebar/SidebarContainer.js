@@ -8,15 +8,13 @@ const mapStateToProps = state => {
   const {
     playingNote,
     isMicActive,
-    selectedScaleName,
-    selectedScaleKey,
+    selectedScale,
   } = state;
 
   return {
     playingNote,
     isMicActive,
-    selectedScaleName,
-    selectedScaleKey
+    selectedScaleKey: selectedScale.key,
   }
 };
 

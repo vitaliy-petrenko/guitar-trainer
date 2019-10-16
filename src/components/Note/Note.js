@@ -2,7 +2,9 @@ import React from 'react';
 import './Note.scss';
 
 export default ({ name = 'C#', octave = 1, isSimilar = false, isActive = true, isInScale = true, isKey = false }) => {
-  const classNames = ['note', `note--${name[0].toLowerCase()}`];
+  const
+    classNames = ['note', `note--${name[0].toLowerCase()}`],
+    string = `${name}${octave ? octave : ''}`;
 
   if (isSimilar) {
     classNames.push('is-similar');
@@ -21,6 +23,6 @@ export default ({ name = 'C#', octave = 1, isSimilar = false, isActive = true, i
   }
 
   return (
-    <div className={classNames.join(' ')}>{name}{octave}</div>
+    <div className={classNames.join(' ')}>{string}</div>
   )
 };

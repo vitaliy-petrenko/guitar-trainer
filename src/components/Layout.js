@@ -29,6 +29,7 @@ const useStyles = makeStyles(theme => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     background: '#212121',
+    border: 0,
     width: SIDEBAR_WIDTH,
     [theme.breakpoints.down('md')]: {
       paddingTop: theme.spacing(8),

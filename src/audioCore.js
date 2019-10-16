@@ -1,7 +1,5 @@
 import EventEmitter from 'wolfy87-eventemitter';
-import { SCALES } from './constants';
-
-export const NOTES = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
+import { NOTES, SCALES } from './constants';
 
 class AudioService extends EventEmitter {
   middleA = 440;

@@ -1,4 +1,4 @@
-import { NOTES } from '../../audioCore';
+import { NOTES } from '../../constants';
 import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 import React from 'react';
 

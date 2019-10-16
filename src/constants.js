@@ -1,3 +1,5 @@
+export const NOTES = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
+
 export const SCALES = {
   ALL: Array(12).fill(1),
   MAJOR: [2, 2, 1, 2, 2, 2, 1],

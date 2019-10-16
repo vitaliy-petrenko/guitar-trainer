@@ -1,7 +1,7 @@
 import React from 'react';
 import './Guitar.scss';
 import Note from '../Note/NoteContainer';
-import { NOTES } from '../../audioCore';
+import { NOTES } from '../../constants';
 
 const String = ({ children }) => <div className='guitar__string'>{children}</div>;
 

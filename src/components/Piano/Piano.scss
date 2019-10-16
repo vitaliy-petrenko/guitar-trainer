@@ -1,22 +1,18 @@
 $blackKeyWidth: 32px;
 
 .piano {
-  margin: auto;
   display: flex;
+  justify-content: center;
   height: 200px;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, .4);
 }
 
 .piano__key {
-  flex: 1;
+  flex: 0 0 44px;
   background: #fff;
   height: 100%;
-  border-left: 1px solid #000;
+  border: 1px solid #000;
   position: relative;
-
-  &:first-child {
-    border-left: 0;
-  }
+  border-radius: 4px;
 
   .note {
     &.is-key {
@@ -30,11 +26,11 @@ $blackKeyWidth: 32px;
   &:nth-child(12n + 7),
   &:nth-child(12n + 9),
   &:nth-child(12n + 11) {
-    border-left: 0;
     position: relative;
     flex: 0;
     z-index: 2;
     height: 65%;
+    border: 0;
 
     &:before {
       content: '';

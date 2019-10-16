@@ -1,6 +1,7 @@
 @import '../../scss/keyframes';
 
-$size: 28px;
+$size: 32px;
+$border: 2px;
 
 .note {
   box-sizing: content-box;
@@ -8,15 +9,16 @@ $size: 28px;
   width: $size;
   height: $size;
   line-height: $size;
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
   border-radius: 50%;
-  opacity: .6;
+  opacity: .7;
   color: #000;
   font-weight: 700;
   transition: transform .1s;
   transform: scale(.8);
-  border: 3px solid transparent;
+  border: $border solid transparent;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .2);
 
   &.is-disabled {
     background: #7c7c7b;
@@ -57,6 +59,8 @@ $size: 28px;
   &.is-key {
     border-color: #fff;
     font-weight: 900;
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
@@ -79,7 +83,7 @@ $size: 28px;
 }
 
 .note--g {
-  background: lightblue;
+  background: #76bfe6;
 }
 
 .note--a {

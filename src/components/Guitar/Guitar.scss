@@ -2,7 +2,6 @@ $stringHeight: 40px;
 
 .guitar {
   background: #443125;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, .4);
   border-radius: 4px;
 }
 
@@ -23,6 +22,7 @@ $stringHeight: 40px;
     border-bottom: 1px solid #dad5ce;
     box-shadow: 0 0 2px rgba(0, 0, 0, 1);
     pointer-events: none;
+    opacity: .6;
   }
 
   @for $i from 1 through 7 {
@@ -63,6 +63,7 @@ $stringHeight: 40px;
       transform: translate3d(-50%, -50%, 0);
       box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .2), 1px 1px 0 rgba(0, 0, 0, .2);
       pointer-events: none;
+      opacity: .5;
     }
 
     .guitar__cell:nth-child(13),
@@ -98,15 +99,15 @@ $stringHeight: 40px;
 }
 
 .guitar__cell {
-  @for $i from 1 through 24 {
-    &:nth-child(#{$i}) {
-      flex: (1 - $i/33) 0 auto;
-    }
-  }
+  flex: 1;
+  //@for $i from 1 through 24 {
+  //  &:nth-child(#{$i}) {
+  //    flex: (1 - $i/33) 0 auto;
+  //  }
+  //}
 
   position: relative;
-  border-left: 2px solid #989898;
-  border-right: 2px solid #767676;
+  border-left: 2px solid rgba(118, 118, 118, 0.62);
 
   &:last-child {
     border-right: 0;
