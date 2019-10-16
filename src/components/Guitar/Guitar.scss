@@ -3,6 +3,7 @@ $stringHeight: 40px;
 .guitar {
   background: #443125;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, .4);
+  border-radius: 4px;
 }
 
 .guitar__string {
@@ -106,6 +107,10 @@ $stringHeight: 40px;
   position: relative;
   border-left: 2px solid #989898;
   border-right: 2px solid #767676;
+
+  &:last-child {
+    border-right: 0;
+  }
 }
 
 .guitar__note {
@@ -118,5 +123,7 @@ $stringHeight: 40px;
 
 .guitar__zero {
   position: relative;
-  flex: 0 0 32px;
+  flex: 0 0 48px;
+  z-index: 2;
+  background: rgb(40, 40, 40);
 }

@@ -4,12 +4,19 @@ export const SCALES = {
   HARMONIC_MAJOR: [2, 2, 1, 2, 1, 3, 1],
   MELODIC_MAJOR: [2, 2, 1, 2, 1, 2, 2],
   MAJOR_PENTATONIC: [2, 2, 3, 2, 3],
+  MAJOR_BLUES: [2, 1, 1, 3, 2, 3],
   MINOR: [2, 1, 2, 2, 1, 2, 2],
   HARMONIC_MINOR: [2, 1, 2, 2, 1, 3, 1],
   MELODIC_MINOR: [2, 1, 2, 2, 2, 2, 1],
   MINOR_PENTATONIC: [3, 2, 2, 3, 2],
-  // MIXOLYDIAN: [],
-  // LYDIAN: [],
+  MINOR_BLUES: [3, 2, 1, 1, 3, 2],
+  MIXOLYDIAN: [2, 2, 1, 2, 2, 1, 2],
+  IONIAN: [2, 2, 1, 2, 2, 2, 1],
+  DORIAN: [2, 1, 2, 2, 2, 1, 2],
+  PHRIGIAN: [1, 2, 2, 2, 1, 2, 2],
+  LYDIAN: [2, 2, 2, 1, 2, 2, 1],
+  AEOLIAN: [2, 1, 2, 2, 1, 2, 2],
+  LOCRIAN: [1, 2, 2, 1, 2, 2, 2],
 };
 
 export const SCALES_KEYS = Object.keys(SCALES).reduce((res, key) => {
@@ -17,17 +24,14 @@ export const SCALES_KEYS = Object.keys(SCALES).reduce((res, key) => {
   return res;
 }, {});
 
-export const SCALES_NAMES = {
-  ALL: 'Show All',
-  MAJOR: 'Major',
-  HARMONIC_MAJOR: 'Harmonic Major',
-  MELODIC_MAJOR: 'Melodic Major',
-  MAJOR_PENTATONIC: 'Major Pentatonic',
-  MINOR: 'Minor',
-  HARMONIC_MINOR: 'Harmonic Minor',
-  MELODIC_MINOR: 'Melodic Minor',
-  MINOR_PENTATONIC: 'Minor Pentatonic',
-};
+export const SCALES_NAMES = Object.keys(SCALES).reduce((res, key) => {
+  res[key] = key
+    .split('_')
+    .map(sub => sub[0].toUpperCase() + sub.slice(1).toLowerCase())
+    .join(' ');
+
+  return res;
+}, {});
 
 export const ACTION_TYPES = {
   SET_PLAYING_NOTE: 'SET_PLAYING_NOTE',
