@@ -5,9 +5,10 @@ const mapStateToProps = ({ playingNote, selectedScale, isMicActive }, { name, oc
   const
     isSimilar = isMicActive && playingNote && playingNote.name === name,
     isActive = isSimilar && playingNote.octave === octave,
-    isInScale = selectedScale.scale.includes(name);
+    isInScale = selectedScale.scale.includes(name),
+    isKey = selectedScale.key === name;
 
-  return { isSimilar, isActive, isInScale };
+  return { isSimilar, isActive, isInScale, isKey };
 };
 
 

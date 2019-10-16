@@ -1,4 +1,5 @@
 export const SCALES = {
+  ALL: Array(12).fill(1),
   MAJOR: [2, 2, 1, 2, 2, 2, 1],
   HARMONIC_MAJOR: [2, 2, 1, 2, 1, 3, 1],
   MELODIC_MAJOR: [2, 2, 1, 2, 1, 2, 2],

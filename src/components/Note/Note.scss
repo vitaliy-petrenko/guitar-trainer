@@ -1,8 +1,9 @@
 @import '../../scss/keyframes';
 
-$size: 32px;
+$size: 28px;
 
 .note {
+  box-sizing: content-box;
   position: relative;
   width: $size;
   height: $size;
@@ -15,6 +16,7 @@ $size: 32px;
   font-weight: 700;
   transition: transform .1s;
   transform: scale(.8);
+  border: 3px solid transparent;
 
   &.is-disabled {
     background: #7c7c7b;
@@ -50,6 +52,11 @@ $size: 32px;
     font-weight: bold;
     opacity: 1;
     animation: pulse .4s infinite;
+  }
+
+  &.is-key {
+    border-color: #fff;
+    font-weight: 900;
   }
 }
 

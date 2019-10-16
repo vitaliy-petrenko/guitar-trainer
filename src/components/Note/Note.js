@@ -1,7 +1,7 @@
 import React from 'react';
 import './Note.scss';
 
-export default ({ name = 'C#', octave = 1, isSimilar = false, isActive = true, isInScale = true }) => {
+export default ({ name = 'C#', octave = 1, isSimilar = false, isActive = true, isInScale = true, isKey = false }) => {
   const classNames = ['note', `note--${name[0].toLowerCase()}`];
 
   if (isSimilar) {
@@ -14,6 +14,10 @@ export default ({ name = 'C#', octave = 1, isSimilar = false, isActive = true, i
 
   if (!isInScale) {
     classNames.push('is-disabled');
+  }
+
+  if (isKey) {
+    classNames.push('is-key');
   }
 
   return (

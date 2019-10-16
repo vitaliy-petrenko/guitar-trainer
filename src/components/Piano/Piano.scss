@@ -18,7 +18,18 @@ $blackKeyWidth: 36px;
     border-left: 0;
   }
 
-  @mixin blackKey {
+  .note {
+    &.is-key {
+      border-color: #000;
+    }
+  }
+
+  //black keys
+  &:nth-child(12n + 2),
+  &:nth-child(12n + 4),
+  &:nth-child(12n + 7),
+  &:nth-child(12n + 9),
+  &:nth-child(12n + 11) {
     border-left: 0;
     position: relative;
     flex: 0;
@@ -35,14 +46,12 @@ $blackKeyWidth: 36px;
       box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
       border-radius: 0 0 2px 2px;
     }
-  }
 
-  &:nth-child(12n + 2),
-  &:nth-child(12n + 4),
-  &:nth-child(12n + 7),
-  &:nth-child(12n + 9),
-  &:nth-child(12n + 11) {
-    @include blackKey;
+    .note {
+      &.is-key {
+        border-color: #fff;
+      }
+    }
   }
 }
 
