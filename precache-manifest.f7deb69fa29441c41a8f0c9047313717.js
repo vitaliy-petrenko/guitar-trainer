@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "176c805a7d43ba8ca8b90b6917849d62",
+    "revision": "b93d030057dded1d61e88169a2f669c0",
     "url": "/guitar-trainer/index.html"
   },
   {
