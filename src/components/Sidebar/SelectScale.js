@@ -8,7 +8,7 @@ export default ({ selectedScale, onSelect = f => f }) => {
     handleChange = event => onSelect(event.target.value);
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth variant="filled">
       <InputLabel htmlFor="sidebar-select-scale">
         Scale
       </InputLabel>

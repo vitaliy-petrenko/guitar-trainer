@@ -53,7 +53,7 @@ $border: 2px;
   &.is-active {
     font-weight: bold;
     opacity: 1;
-    animation: pulse .4s infinite;
+    @include pulse;
   }
 
   &.is-key {
@@ -69,8 +69,16 @@ $border: 2px;
   color: #fff;
 }
 
+.note--c-diez {
+  background: #ff9759;
+  color: #fff;
+}
 .note--d {
   background: #ffa130;
+}
+
+.note--d-diez {
+  background: #ffc941;
 }
 
 .note--e {
@@ -82,12 +90,26 @@ $border: 2px;
   color: #fff;
 }
 
+.note--f-diez {
+  background: #5b9c92;
+  color: #fff;
+}
+
 .note--g {
   background: #76bfe6;
 }
 
+.note--g-diez {
+  background: #518ae3;
+}
+
 .note--a {
   background: #3e59ff;
+  color: #fff;
+}
+
+.note--a-diez {
+  background: #6430ff;
   color: #fff;
 }
 

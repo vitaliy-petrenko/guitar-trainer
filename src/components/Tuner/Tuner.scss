@@ -11,7 +11,7 @@
 
   .note {
     &.is-active {
-      animation: pulse .4s infinite;
+      @include pulse;
     }
   }
 
@@ -40,7 +40,7 @@
 
   &.is-active:after {
     color: #ff5f61;
-    animation: pulse .4s infinite;
+    @include pulse;
   }
 }
 

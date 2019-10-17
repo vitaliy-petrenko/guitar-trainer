@@ -2,8 +2,9 @@ import React from 'react';
 import { Drawer, Fab, Hidden, makeStyles } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Settings';
 import CloseIcon from '@material-ui/icons/Close';
+import MicIcon from '@material-ui/icons/Mic';
 
-const SIDEBAR_WIDTH = 300;
+const SIDEBAR_WIDTH = 240;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -44,7 +45,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default ({ Sidebar, Main }) => {
+export default ({ Sidebar, Main, isMicActive }) => {
   const
     classes = useStyles(),
     [mobileOpen, setMobileOpen] = React.useState(false),
@@ -55,16 +56,31 @@ export default ({ Sidebar, Main }) => {
       <Sidebar/>
     );
 
+  let
+    menuIcon,
+    showMicIcon = false;
+
+  if (mobileOpen) {
+    menuIcon = <CloseIcon/>;
+  } else if (!isMicActive) {
+    menuIcon = <MicIcon/>;
+    showMicIcon = true;
+  } else {
+    menuIcon = <MenuIcon/>;
+  }
+
   return (
     <div className={classes.root}>
 
       <div className={classes.menuButton}>
-        <Fab size='small' color={mobileOpen ? 'default' : 'secondary'} onClick={handleDrawerToggle} aria-label='edit'>
-          {mobileOpen ? (
-            <CloseIcon/>
-          ) : (
-            <MenuIcon/>
-          )}
+        <Fab
+          size='small'
+          color={mobileOpen ? 'default' : 'secondary'}
+          className={`mobile-menu-icon${showMicIcon ? ' show-mic' : ''}`}
+          onClick={handleDrawerToggle}
+          aria-label='edit'
+        >
+          {menuIcon}
         </Fab>
       </div>
 

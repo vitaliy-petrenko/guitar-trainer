@@ -1,9 +1,9 @@
 import React from 'react';
 import './Note.scss';
 
-export default ({ name = 'C#', octave = 1, isSimilar = false, isActive = true, isInScale = true, isKey = false }) => {
+export default ({ name, octave, isSimilar = false, isActive = true, isInScale = true, isKey = false }) => {
   const
-    classNames = ['note', `note--${name[0].toLowerCase()}`],
+    classNames = ['note', `note--${name[0].toLowerCase()}${name[1] === '#' ? '-diez' : ''}`],
     string = `${name}${octave ? octave : ''}`;
 
   if (isSimilar) {

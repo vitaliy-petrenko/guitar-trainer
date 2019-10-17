@@ -1,4 +1,4 @@
-export const NOTES = ['C', 'C♯', 'D', 'D♯', 'E', 'F', 'F♯', 'G', 'G♯', 'A', 'A♯', 'B'];
+export const NOTES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
 export const SCALES = {
   ALL: Array(12).fill(1),
@@ -13,12 +13,15 @@ export const SCALES = {
   MINOR_PENTATONIC: [3, 2, 2, 3, 2],
   MINOR_BLUES: [3, 2, 1, 1, 3, 2],
   MIXOLYDIAN: [2, 2, 1, 2, 2, 1, 2],
-  IONIAN: [2, 2, 1, 2, 2, 2, 1],
   DORIAN: [2, 1, 2, 2, 2, 1, 2],
   PHRIGIAN: [1, 2, 2, 2, 1, 2, 2],
   LYDIAN: [2, 2, 2, 1, 2, 2, 1],
-  AEOLIAN: [2, 1, 2, 2, 1, 2, 2],
   LOCRIAN: [1, 2, 2, 1, 2, 2, 2],
+};
+
+const CUSTOM_SCALES_NAMES = {
+  MAJOR: 'Major/Ionian',
+  MINOR: 'Minor/Aeolian',
 };
 
 export const SCALES_KEYS = Object.keys(SCALES).reduce((res, key) => {
@@ -27,7 +30,7 @@ export const SCALES_KEYS = Object.keys(SCALES).reduce((res, key) => {
 }, {});
 
 export const SCALES_NAMES = Object.keys(SCALES).reduce((res, key) => {
-  res[key] = key
+  res[key] = CUSTOM_SCALES_NAMES[key] ? CUSTOM_SCALES_NAMES[key] : key
     .split('_')
     .map(sub => sub[0].toUpperCase() + sub.slice(1).toLowerCase())
     .join(' ');

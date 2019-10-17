@@ -11,3 +11,8 @@
     transform: scale(1);
   }
 }
+
+@mixin pulse($time: .4s) {
+  animation: pulse $time infinite;
+}
+

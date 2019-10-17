@@ -19,12 +19,15 @@ export default class App extends React.Component {
   }
 
   render() {
+    const { isMicActive } = this.props;
+
     return (
       <div className='application'>
         <ThemeProvider theme={theme}>
           <Layout
             Sidebar={SidebarContainer}
             Main={MainContainer}
+            isMicActive={isMicActive}
           />
         </ThemeProvider>
       </div>

@@ -1,4 +1,5 @@
 @import "../scss/variables";
+@import "../scss/keyframes";
 
 html {
   background: #121212;
@@ -19,4 +20,10 @@ html {
 
 .board-container__in {
   margin: auto;
+}
+
+.mobile-menu-icon {
+  &.show-mic {
+    @include pulse(1s);
+  }
 }
