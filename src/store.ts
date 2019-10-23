@@ -1,15 +1,15 @@
-import { applyMiddleware, createStore } from 'redux';
+import { applyMiddleware, createStore, Middleware } from 'redux';
 import thunk from 'redux-thunk';
-import logger from 'redux-logger';
+import * as reduxLogger from 'redux-logger';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducers from './reducers/root';
 
 const
-  middlewares = [logger, thunk],
+  middlewares: Middleware[] = [thunk],
   isDevMode = process.env.NODE_ENV === 'development';
 
 if (isDevMode) {
-  middlewares.push(logger);
+  middlewares.push(reduxLogger.createLogger());
 }
 
 let enhancer = applyMiddleware(...middlewares);
