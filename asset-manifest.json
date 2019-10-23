@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/guitar-trainer/static/css/main.0a347ac2.chunk.css",
-    "main.js": "/guitar-trainer/static/js/main.01e2982d.chunk.js",
-    "main.js.map": "/guitar-trainer/static/js/main.01e2982d.chunk.js.map",
+    "main.js": "/guitar-trainer/static/js/main.b7414f09.chunk.js",
+    "main.js.map": "/guitar-trainer/static/js/main.b7414f09.chunk.js.map",
     "runtime-main.js": "/guitar-trainer/static/js/runtime-main.5325ad3d.js",
     "runtime-main.js.map": "/guitar-trainer/static/js/runtime-main.5325ad3d.js.map",
-    "static/js/2.01d2ada7.chunk.js": "/guitar-trainer/static/js/2.01d2ada7.chunk.js",
-    "static/js/2.01d2ada7.chunk.js.map": "/guitar-trainer/static/js/2.01d2ada7.chunk.js.map",
+    "static/js/2.6d9dd7ae.chunk.js": "/guitar-trainer/static/js/2.6d9dd7ae.chunk.js",
+    "static/js/2.6d9dd7ae.chunk.js.map": "/guitar-trainer/static/js/2.6d9dd7ae.chunk.js.map",
     "index.html": "/guitar-trainer/index.html",
-    "precache-manifest.c886773ff97aec0983ee459c3f3d02ae.js": "/guitar-trainer/precache-manifest.c886773ff97aec0983ee459c3f3d02ae.js",
+    "precache-manifest.6a13334f3aa9d8ae52a72fbd47f8bab8.js": "/guitar-trainer/precache-manifest.6a13334f3aa9d8ae52a72fbd47f8bab8.js",
     "service-worker.js": "/guitar-trainer/service-worker.js",
     "static/css/main.0a347ac2.chunk.css.map": "/guitar-trainer/static/css/main.0a347ac2.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.5325ad3d.js",
-    "static/js/2.01d2ada7.chunk.js",
+    "static/js/2.6d9dd7ae.chunk.js",
     "static/css/main.0a347ac2.chunk.css",
-    "static/js/main.01e2982d.chunk.js"
+    "static/js/main.b7414f09.chunk.js"
   ]
 }
