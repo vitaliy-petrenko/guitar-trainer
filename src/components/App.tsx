@@ -6,16 +6,16 @@ import MainContainer from './MainContainer';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from '../theme';
 import Layout from './Layout';
-import { Note } from '../types';
+import { INote } from '../types/audio';
 
 export interface IProps {
   isMicActive: boolean,
-  setPlayingNote: (note: Note) => void,
+  setPlayingNote: (note: INote) => void,
 }
 
 export default class App extends React.Component<IProps> {
   componentDidMount() {
-    audioService.on('notesDetected', (notesData: Note[] = []) => {
+    audioService.on('notesDetected', (notesData: INote[] = []) => {
       const
         [note] = notesData,
         setter = this.props.setPlayingNote;

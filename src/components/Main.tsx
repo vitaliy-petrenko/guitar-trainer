@@ -1,12 +1,12 @@
 import Guitar from './Guitar/Guitar';
 import Piano from './Piano/Piano';
 import React from 'react';
-import { GuitarOpenStrings, Note, SelectedScale } from '../types';
+import { INote, ISelectedScale, TGuitarOpenStrings } from '../types/audio';
 
 export interface IProps {
-  guitarOpenStrings: GuitarOpenStrings,
-  pianoStartNote: Note,
-  selectedScale: SelectedScale,
+  guitarOpenStrings: TGuitarOpenStrings,
+  pianoStartNote: INote,
+  selectedScale: ISelectedScale,
 }
 
 const Main: React.FC<IProps> = ({ guitarOpenStrings, pianoStartNote, selectedScale }) => (

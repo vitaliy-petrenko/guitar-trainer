@@ -1,7 +1,7 @@
 import { NOTES, SCALES } from './constants';
-import { ScaleNotes } from './types';
+import { TScaleNotes } from './types/audio';
 
-export const generateScaleNotes = (scaleName: string, scaleKey: string): ScaleNotes => {
+export const generateScaleNotes = (scaleName: string, scaleKey: string): TScaleNotes => {
   const
     pattern = SCALES[scaleName],
     scale = [scaleKey];

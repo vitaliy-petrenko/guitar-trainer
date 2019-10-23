@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Note, { IProps } from './Note';
-import { IStore } from '../../types';
+import { IStore } from '../../store/root';
 
 type StateProps = Pick<IProps, 'isSimilar' | 'isActive' | 'isInScale' | 'isKey'>;
 type OwnProps = Pick<IProps, 'name' | 'octave'>;

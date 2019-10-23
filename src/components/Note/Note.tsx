@@ -1,8 +1,8 @@
 import React from 'react';
 import './Note.scss';
-import { Note as NoteType } from '../../types';
+import { INote } from '../../types/audio';
 
-export interface IProps extends NoteType {
+export interface IProps extends INote {
   isActive?: boolean,
   isSimilar?: boolean,
   isInScale?: boolean,

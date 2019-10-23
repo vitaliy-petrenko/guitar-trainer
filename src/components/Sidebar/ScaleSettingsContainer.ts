@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import { selectScale, selectScaleKey } from '../../actions/audio';
+import { selectScale, selectScaleKey } from '../../store/audio/actions';
 import { Dispatch } from 'redux';
-import { IStore } from '../../types';
+import { IStore } from '../../store/root';
 import ScaleSettings, { IProps } from './ScaleSettings';
 
 type StateProps = Pick<IProps, 'selectedScale'>;

@@ -2,21 +2,21 @@ import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 import React from 'react';
 import uuid from 'uuid';
 
-type SelectValue = string;
+export type TSelectValue = string;
 
-export type SelectOption = {
+export interface ISelectOption {
   name: string,
-  value: SelectValue
+  value: TSelectValue,
 }
 
 export interface IProps {
-  options: SelectOption[],
+  options: ISelectOption[],
   title: string,
-  selectedValue: SelectValue,
-  onSelect: (key: SelectValue) => void,
+  selectedValue: TSelectValue,
+  onSelect: (key: TSelectValue) => void,
 }
 
-const SelectKey: React.FC<IProps> = ({ options, onSelect, selectedValue, title }) => {
+const SidebarSelect: React.FC<IProps> = ({ options, onSelect, selectedValue, title }) => {
   const
     optionsElements = options.map(({ name, value }) => <MenuItem key={value} value={value}>{name}</MenuItem>),
     handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
@@ -40,4 +40,4 @@ const SelectKey: React.FC<IProps> = ({ options, onSelect, selectedValue, title }
   );
 };
 
-export default SelectKey;
+export default SidebarSelect;

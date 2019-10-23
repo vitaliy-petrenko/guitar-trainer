@@ -2,13 +2,13 @@ import React from 'react';
 import './Guitar.scss';
 import Note from '../Note/NoteContainer';
 import { NOTES } from '../../constants';
-import { GuitarOpenStrings, Note as NoteType } from '../../types';
+import { INote, TGuitarOpenStrings } from '../../types/audio';
 
-interface Cell {
-  note: NoteType,
+interface ICell {
+  note: INote,
 }
 
-const Cell: React.FC<Cell> = ({ note }) => (
+const Cell: React.FC<ICell> = ({ note }) => (
   <div className='guitar__cell'>
     <div className="guitar__note">
       <Note {...note}/>
@@ -16,7 +16,7 @@ const Cell: React.FC<Cell> = ({ note }) => (
   </div>
 );
 
-const Zero: React.FC<Cell> = ({ note }) => (
+const Zero: React.FC<ICell> = ({ note }) => (
   <div className="guitar__zero">
     <div className="guitar__note">
       <Note {...note}/>
@@ -24,12 +24,12 @@ const Zero: React.FC<Cell> = ({ note }) => (
   </div>
 );
 
-interface Guitar {
+interface IProps {
   frets: number,
-  startNotes: GuitarOpenStrings
+  startNotes: TGuitarOpenStrings
 }
 
-const Guitar: React.FC<Guitar> = ({ frets, startNotes }) => {
+const Guitar: React.FC<IProps> = ({ frets, startNotes }) => {
   const strings = [];
 
   for (let i = 0; i < 6; i++) {

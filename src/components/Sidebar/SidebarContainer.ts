@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import Sidebar, { IProps } from './Sidebar';
-import { switchMic } from '../../actions/audio';
+import { switchMic } from '../../store/audio/actions';
 import { Dispatch } from 'redux';
-import { IStore } from '../../types';
+import { IStore } from '../../store/root';
 
 type StateProps = Pick<IProps, 'isMicActive' | 'playingNote'>;
 type DispatchProps = Pick<IProps, 'switchMic'>

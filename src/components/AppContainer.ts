@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import App, { IProps } from './App';
-import { setPlayingNote } from '../actions/audio';
-import { IStore, Note } from '../types';
+import { setPlayingNote } from '../store/audio/actions';
+import { INote } from '../types/audio';
+import { IStore } from '../store/root';
 
 type StateProps = Pick<IProps, 'isMicActive'>;
 type DispatchProps = Pick<IProps, 'setPlayingNote'>
@@ -12,7 +13,7 @@ const mapStateToProps = (
 ): StateProps => ({ isMicActive });
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
-  setPlayingNote: (note: Note) => dispatch(setPlayingNote(note)),
+  setPlayingNote: (note: INote) => dispatch(setPlayingNote(note)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

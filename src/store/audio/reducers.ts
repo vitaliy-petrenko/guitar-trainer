@@ -1,6 +1,7 @@
-import { ACTION_TYPES, NOTES, SCALES_KEYS } from '../constants';
-import { generateScaleNotes } from '../utils';
-import { Action, Note, SelectedScale } from '../types';
+import { ACTION_TYPES, NOTES, SCALES_KEYS } from '../../constants';
+import { generateScaleNotes } from '../../utils';
+import { INote, ISelectedScale, TGuitarOpenStrings } from '../../types/audio';
+import { ISelectScale, ISelectScaleKey, ISetPlayingNote, ISwitchMic } from './types';
 
 const INITIAL_STATE = {
   playingNote: {
@@ -13,10 +14,21 @@ const INITIAL_STATE = {
     key: NOTES[0],
     notes: generateScaleNotes(SCALES_KEYS.MAJOR, NOTES[0])
   },
+
+  pianoStartNote: { name: 'C', octave: 2 },
+
+  guitarOpenStrings: [
+    { name: 'E', octave: 4 },
+    { name: 'B', octave: 3 },
+    { name: 'G', octave: 3 },
+    { name: 'D', octave: 3 },
+    { name: 'A', octave: 2 },
+    { name: 'E', octave: 2 },
+  ]
 };
 
 export const playingNote =
-  (state: Note = INITIAL_STATE.playingNote, action: Action) => {
+  (state: INote = INITIAL_STATE.playingNote, action: ISetPlayingNote) => {
     if (action.type === ACTION_TYPES.SET_PLAYING_NOTE) {
       return action.payload;
     }
@@ -25,7 +37,7 @@ export const playingNote =
   };
 
 export const isMicActive =
-  (state: boolean = INITIAL_STATE.isMicActive, action: Action) => {
+  (state: boolean = INITIAL_STATE.isMicActive, action: ISwitchMic) => {
     if (action.type === ACTION_TYPES.SET_MIC_LISTEN) {
       return action.payload;
     }
@@ -34,7 +46,7 @@ export const isMicActive =
   };
 
 export const selectedScale =
-  (state: SelectedScale = { ...INITIAL_STATE.scale }, action: Action): SelectedScale => {
+  (state: ISelectedScale = { ...INITIAL_STATE.scale }, action: ISelectScale | ISelectScaleKey): ISelectedScale => {
     switch (action.type) {
 
       case ACTION_TYPES.SET_SCALE_NAME: {
@@ -65,3 +77,11 @@ export const selectedScale =
         return state;
     }
   };
+
+export const pianoStartNote = (state: INote = INITIAL_STATE.pianoStartNote): INote => {
+  return state;
+};
+
+export const guitarOpenStrings = (state: TGuitarOpenStrings = INITIAL_STATE.guitarOpenStrings): TGuitarOpenStrings => {
+  return state;
+};

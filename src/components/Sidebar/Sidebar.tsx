@@ -5,11 +5,11 @@ import ScaleSettings from './ScaleSettingsContainer';
 import Tuner from '../Tuner/Tuner';
 import StartRecording from './StartRecording';
 import SidebarItem from './SidebarItem';
-import { PlayingNote as PlayingNoteType } from '../../types';
+import { IPlayingNote } from '../../types/audio';
 
 export interface IProps {
   isMicActive: boolean,
-  playingNote: PlayingNoteType,
+  playingNote: IPlayingNote,
   switchMic: (key: boolean) => void,
 }
 

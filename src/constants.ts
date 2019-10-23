@@ -1,4 +1,4 @@
-import { ScaleKeys, ScalesIntervals, ScalesTranslations } from './types';
+import { IScaleKeys, IScalesIntervals, IScalesTranslations } from './types/audio';
 
 export const NOTES: Array<string> = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B'];
 
@@ -32,18 +32,18 @@ export const SCALES = {
   MELODIC_MINOR: [2, 1, 2, 2, 2, 2, 1],
   MINOR_PENTATONIC: [3, 2, 2, 3, 2],
   MINOR_BLUES: [3, 2, 1, 1, 3, 2],
-} as ScalesIntervals;
+} as IScalesIntervals;
 
 export const SCALES_KEYS = Object.keys(SCALES).reduce((res, key) => {
   res[key] = key;
 
   return res;
-}, {} as ScaleKeys);
+}, {} as IScaleKeys);
 
 const CUSTOM_SCALES_NAMES = {
   MAJOR: 'Major/Ionian',
   MINOR: 'Minor/Aeolian',
-} as ScalesTranslations;
+} as IScalesTranslations;
 
 export const SCALES_NAMES = Object.keys(SCALES).reduce((res, key) => {
   res[key] = CUSTOM_SCALES_NAMES[key] ? CUSTOM_SCALES_NAMES[key] : key
@@ -52,7 +52,7 @@ export const SCALES_NAMES = Object.keys(SCALES).reduce((res, key) => {
     .join(' ');
 
   return res;
-}, {} as ScalesTranslations);
+}, {} as IScalesTranslations);
 
 export const ACTION_TYPES = {
   SET_PLAYING_NOTE: 'SET_PLAYING_NOTE',

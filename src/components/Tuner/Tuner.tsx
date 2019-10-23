@@ -1,15 +1,15 @@
 import React from 'react';
 import './Tuner.scss';
 import Note from '../Note/Note';
-import { PlayingNote as PlayingNoteType } from '../../types';
+import { IPlayingNote } from '../../types/audio';
 
 const REASONABLE_DELTA = 10;
 
-interface TunerArrow {
+interface ITunerArrow {
   isActive: boolean
 }
 
-const Arrow: React.FC<TunerArrow> = ({ isActive }) => {
+const Arrow: React.FC<ITunerArrow> = ({ isActive }) => {
   const classNames = ['tuner__arrow'];
 
   if (isActive) {
@@ -22,7 +22,7 @@ const Arrow: React.FC<TunerArrow> = ({ isActive }) => {
 };
 
 interface IProps {
-  playingNote: PlayingNoteType
+  playingNote: IPlayingNote
 }
 
 const Tuner: React.FC<IProps> = ({ playingNote }) => {

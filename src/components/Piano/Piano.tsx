@@ -2,9 +2,9 @@ import React from 'react';
 import './Piano.scss';
 import { NOTES } from '../../constants';
 import Note from '../Note/NoteContainer';
-import { Note as NoteType } from '../../types';
+import { INote } from '../../types/audio';
 
-const Key: React.FC<NoteType> = ({ name, octave }) => {
+const Key: React.FC<INote> = ({ name, octave }) => {
   const note = {
     name,
     octave,
@@ -19,12 +19,12 @@ const Key: React.FC<NoteType> = ({ name, octave }) => {
   );
 };
 
-interface Piano {
+interface IProps {
   octaves: number,
-  startNote: NoteType
+  startNote: INote,
 }
 
-const Piano: React.FC<Piano> = ({ octaves = 3, startNote }) => {
+const Piano: React.FC<IProps> = ({ octaves = 3, startNote }) => {
   const
     keys = [],
     keysCount = 12 * octaves;
