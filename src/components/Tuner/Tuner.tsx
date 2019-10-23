@@ -1,10 +1,15 @@
 import React from 'react';
 import './Tuner.scss';
-import Note from '../Note/Note'
+import Note from '../Note/Note';
+import { PlayingNote as PlayingNoteType } from '../../types';
 
 const REASONABLE_DELTA = 10;
 
-const Arrow = ({ isActive }) => {
+interface TunerArrow {
+  isActive: boolean
+}
+
+const Arrow: React.FC<TunerArrow> = ({ isActive }) => {
   const classNames = ['tuner__arrow'];
 
   if (isActive) {
@@ -13,10 +18,14 @@ const Arrow = ({ isActive }) => {
 
   return (
     <div className={classNames.join(' ')}/>
-  )
+  );
 };
 
-export default ({ playingNote }) => {
+interface IProps {
+  playingNote: PlayingNoteType
+}
+
+const Tuner: React.FC<IProps> = ({ playingNote }) => {
   return (
     <div className='tuner'>
       <div className="tuner__col">
@@ -25,7 +34,7 @@ export default ({ playingNote }) => {
       <div className="tuner__col tuner__note">
         <Note
           isActive={playingNote.cents >= -REASONABLE_DELTA && playingNote.cents <= REASONABLE_DELTA}
-          name={playingNote.name} note={playingNote}
+          name={playingNote.name}
           octave={playingNote.octave}
         />
       </div>
@@ -33,5 +42,7 @@ export default ({ playingNote }) => {
         <Arrow isActive={playingNote.cents > REASONABLE_DELTA}/>
       </div>
     </div>
-  )
+  );
 };
+
+export default Tuner;

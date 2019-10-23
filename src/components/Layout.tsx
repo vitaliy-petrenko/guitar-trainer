@@ -1,12 +1,18 @@
 import React from 'react';
-import { Drawer, Fab, Hidden, makeStyles } from '@material-ui/core';
+import { Drawer, Fab, Hidden, makeStyles, Theme } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Settings';
 import CloseIcon from '@material-ui/icons/Close';
 import MicIcon from '@material-ui/icons/Mic';
 
 const SIDEBAR_WIDTH = 240;
 
-const useStyles = makeStyles(theme => ({
+interface IProps {
+  Sidebar: React.ComponentType,
+  Main: React.ComponentType,
+  isMicActive: boolean,
+}
+
+const useStyles = makeStyles((theme: Theme) => ({
   root: {
     display: 'flex',
   },
@@ -45,16 +51,12 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default ({ Sidebar, Main, isMicActive }) => {
+const Layout: React.FC<IProps> = ({ Sidebar, Main, isMicActive }) => {
   const
     classes = useStyles(),
     [mobileOpen, setMobileOpen] = React.useState(false),
-    handleDrawerToggle = () => {
-      setMobileOpen(!mobileOpen);
-    },
-    drawer = (
-      <Sidebar/>
-    );
+    handleDrawerToggle = (): void => setMobileOpen(!mobileOpen),
+    drawer = <Sidebar/>;
 
   let
     menuIcon,
@@ -119,3 +121,5 @@ export default ({ Sidebar, Main, isMicActive }) => {
     </div>
   );
 };
+
+export default Layout;

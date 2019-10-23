@@ -2,10 +2,13 @@ import React from 'react';
 import './Guitar.scss';
 import Note from '../Note/NoteContainer';
 import { NOTES } from '../../constants';
+import { GuitarOpenStrings, Note as NoteType } from '../../types';
 
-const String = ({ children }) => <div className='guitar__string'>{children}</div>;
+interface Cell {
+  note: NoteType,
+}
 
-const Cell = ({ note }) => (
+const Cell: React.FC<Cell> = ({ note }) => (
   <div className='guitar__cell'>
     <div className="guitar__note">
       <Note {...note}/>
@@ -13,7 +16,7 @@ const Cell = ({ note }) => (
   </div>
 );
 
-const Zero = ({ note }) => (
+const Zero: React.FC<Cell> = ({ note }) => (
   <div className="guitar__zero">
     <div className="guitar__note">
       <Note {...note}/>
@@ -21,7 +24,12 @@ const Zero = ({ note }) => (
   </div>
 );
 
-export default ({ frets, startNotes }) => {
+interface Guitar {
+  frets: number,
+  startNotes: GuitarOpenStrings
+}
+
+const Guitar: React.FC<Guitar> = ({ frets, startNotes }) => {
   const strings = [];
 
   for (let i = 0; i < 6; i++) {
@@ -31,7 +39,7 @@ export default ({ frets, startNotes }) => {
       startNoteIndex = NOTES.indexOf(startNote.name),
       fretsWithZero = frets + 1;
 
-    let octave = startNote.octave;
+    let octave = startNote.octave || 0;
 
     for (let j = 0; j < fretsWithZero; j++) {
       const newNoteIndex = (j + startNoteIndex) % NOTES.length;
@@ -49,12 +57,14 @@ export default ({ frets, startNotes }) => {
       }
     }
 
-    strings.push(<String key={i}>{cells}</String>);
+    strings.push(<div key={i} className='guitar__string'>{cells}</div>);
   }
 
   return (
     <div className="guitar">
       {strings}
     </div>
-  )
-}
+  );
+};
+
+export default Guitar;

@@ -1,5 +1,5 @@
 import EventEmitter from 'wolfy87-eventemitter';
-import { NOTES, SCALES } from './constants';
+import { NOTES } from './constants';
 
 class AudioService extends EventEmitter {
   middleA = 440;
@@ -91,7 +91,7 @@ class AudioService extends EventEmitter {
   }
 
   /**
-   * get musical note from frequency
+   * get musical Note from frequency
    *
    * @param {number} frequency
    * @returns {number}
@@ -102,7 +102,7 @@ class AudioService extends EventEmitter {
   }
 
   /**
-   * get the musical note's standard frequency
+   * get the musical Note's standard frequency
    *
    * @param note
    * @returns {number}
@@ -112,7 +112,7 @@ class AudioService extends EventEmitter {
   }
 
   /**
-   * get cents difference between given frequency and musical note's standard frequency
+   * get cents difference between given frequency and musical Note's standard frequency
    *
    * @param {number} frequency
    * @param {number} note
@@ -123,7 +123,7 @@ class AudioService extends EventEmitter {
   }
 
   /**
-   * play the musical note
+   * play the musical Note
    *
    * @param {number} frequency
    */
@@ -144,19 +144,3 @@ class AudioService extends EventEmitter {
 }
 
 export default new AudioService();
-
-
-export const generateScale = (scaleName, scaleKey) => {
-  const pattern = SCALES[scaleName];
-
-  if (!pattern) return null;
-
-  const scale = [scaleKey];
-
-  for (let i = 1; i < pattern.length; i++) {
-    const nextNoteIndex = (NOTES.indexOf(scale[i - 1]) + pattern[i - 1]) % NOTES.length;
-    scale.push(NOTES[nextNoteIndex]);
-  }
-
-  return scale;
-};

@@ -1,7 +1,15 @@
 import React from 'react';
 import './Note.scss';
+import { Note as NoteType } from '../../types';
 
-export default ({ name, octave, isSimilar = false, isActive = true, isInScale = true, isKey = false }) => {
+export interface IProps extends NoteType {
+  isActive?: boolean,
+  isSimilar?: boolean,
+  isInScale?: boolean,
+  isKey?: boolean,
+}
+
+const Note: React.FC<IProps> = ({ name, octave, isSimilar = false, isActive = true, isInScale = true, isKey = false }) => {
   const
     classNames = ['note', `note--${name[0].toLowerCase()}${name[1] === '#' ? '-diez' : ''}`],
     string = `${name}${octave ? octave : ''}`;
@@ -24,5 +32,8 @@ export default ({ name, octave, isSimilar = false, isActive = true, isInScale = 
 
   return (
     <div className={classNames.join(' ')}>{string}</div>
-  )
+  );
 };
+
+
+export default Note;
