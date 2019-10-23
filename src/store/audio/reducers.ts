@@ -1,7 +1,7 @@
 import { ACTION_TYPES, NOTES, SCALES_KEYS } from '../../constants';
 import { generateScaleNotes } from '../../utils';
 import { INote, ISelectedScale, TGuitarOpenStrings } from '../../types/audio';
-import { ISelectScale, ISelectScaleKey, ISetPlayingNote, ISwitchMic } from './types';
+import { ISelectScaleAction, ISelectScaleKeyAction, ISetPlayingNoteAction, ISwitchMicAction } from './types';
 
 const INITIAL_STATE = {
   playingNote: {
@@ -28,7 +28,7 @@ const INITIAL_STATE = {
 };
 
 export const playingNote =
-  (state: INote = INITIAL_STATE.playingNote, action: ISetPlayingNote) => {
+  (state: INote = INITIAL_STATE.playingNote, action: ISetPlayingNoteAction) => {
     if (action.type === ACTION_TYPES.SET_PLAYING_NOTE) {
       return action.payload;
     }
@@ -37,7 +37,7 @@ export const playingNote =
   };
 
 export const isMicActive =
-  (state: boolean = INITIAL_STATE.isMicActive, action: ISwitchMic) => {
+  (state: boolean = INITIAL_STATE.isMicActive, action: ISwitchMicAction) => {
     if (action.type === ACTION_TYPES.SET_MIC_LISTEN) {
       return action.payload;
     }
@@ -46,7 +46,7 @@ export const isMicActive =
   };
 
 export const selectedScale =
-  (state: ISelectedScale = { ...INITIAL_STATE.scale }, action: ISelectScale | ISelectScaleKey): ISelectedScale => {
+  (state: ISelectedScale = { ...INITIAL_STATE.scale }, action: ISelectScaleAction | ISelectScaleKeyAction): ISelectedScale => {
     switch (action.type) {
 
       case ACTION_TYPES.SET_SCALE_NAME: {
