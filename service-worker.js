@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/guitar-trainer/precache-manifest.cabff1162aa50ccaf25dc70617ed4273.js"
+  "/guitar-trainer/precache-manifest.7628eec627d26324eea03543d750db7d.js"
 );
 
 self.addEventListener('message', (event) => {
