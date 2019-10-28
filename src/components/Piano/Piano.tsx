@@ -29,11 +29,11 @@ const Piano: React.FC<IProps> = ({ octaves = 3, startNote }) => {
     keys = [],
     keysCount = 12 * octaves;
 
-  for (let i = 0, octave = 0, note = { ...startNote }; i < keysCount; i++) {
+  let octave = startNote.octave || 2;
+
+  for (let i = 0, note = { ...startNote }; i < keysCount; i++) {
     const
       noteIndex = NOTES.indexOf(note.name);
-
-    octave = note.octave ? note.octave : octave;
 
     keys.push(<Key key={i} name={note.name} octave={octaves === 1 ? null : octave}/>);
 
