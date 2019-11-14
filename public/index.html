@@ -15,7 +15,6 @@
   <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="%PUBLIC_URL%/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png">
-  <meta name="theme-color" content="#212121">
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="theme-color" content="#212121"/>
@@ -47,21 +46,6 @@
 <body>
 <noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="root"></div>
-<script>
-	if ('serviceWorker' in navigator) {
-		window.addEventListener('load', function () {
-			navigator.serviceWorker.register('worker.js').then(function (registration) {
-				console.log('Worker registration successful', registration.scope);
-			}, function (err) {
-				console.log('Worker registration failed', err);
-			}).catch(function (err) {
-				console.log(err);
-			});
-		});
-	} else {
-		console.log('Service Worker is not supported by browser.');
-	}
-</script>
 <!--
   This HTML file is a template.
   If you open it directly in the browser, you will see an empty page.

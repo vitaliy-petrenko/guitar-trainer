@@ -3,7 +3,7 @@ import './Tuner.scss';
 import Note from '../Note/Note';
 import { IPlayingNote } from '../../types/audio';
 
-const REASONABLE_DELTA = 10;
+const REASONABLE_DELTA = 6;
 
 interface ITunerArrow {
   isActive: boolean

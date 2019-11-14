@@ -6,6 +6,7 @@ import Tuner from '../Tuner/Tuner';
 import StartRecording from './StartRecording';
 import SidebarItem from './SidebarItem';
 import { IPlayingNote } from '../../types/audio';
+import { Typography } from '@material-ui/core';
 
 export interface IProps {
   isMicActive: boolean,
@@ -25,10 +26,15 @@ const Sidebar: React.FC<IProps> = (
   return (
     <div className='sidebar'>
       <div className="sidebar__in">
+        {!isMicActive && (
+          <StartRecording start={initAudio}/>
+        )}
 
         <SidebarItem title='Mini Tuner'>
           {!isMicActive ? (
-            <StartRecording start={initAudio}/>
+            <Typography variant='subtitle2' color='error'>
+              Enable recording to use tuner
+            </Typography>
           ) : (
             <Tuner playingNote={playingNote}/>
           )}

@@ -11,7 +11,7 @@ const
   }));
 
 export interface IProps {
-  title: string,
+  title?: string,
 }
 
 const SidebarItem: React.FC<IProps> = ({ title, children }) => {
@@ -20,9 +20,11 @@ const SidebarItem: React.FC<IProps> = ({ title, children }) => {
   return (
     <div className="sidebar__item">
       <Paper className={classes.paper}>
-        <Heading>
-          {title}
-        </Heading>
+        {title && (
+          <Heading>
+            {title}
+          </Heading>
+        )}
         {children}
       </Paper>
     </div>
