@@ -3,7 +3,6 @@ import './Guitar.scss'
 import Note from '../Note/NoteContainer'
 import { NOTES } from '../../constants'
 import { INote, TGuitarOpenStrings } from '../../types/audio'
-import { memoize } from 'decko'
 
 interface ICell {
   note: INote,
@@ -30,14 +29,19 @@ interface IProps {
   startNotes: TGuitarOpenStrings
 }
 
-class Guitar extends React.Component<IProps> {
-  static defaultProps = {
-    octaves: 3,
-  }
+const getMarkup = (() => {
+  const
+    cache = new Map(),
+    getCacheKey = ({ frets, startNotes }: IProps): string =>
+      `${frets}.${startNotes.map(({ name, octave }) => name + octave).join('.')}`
 
-  @memoize
-  getMarkup({ frets, startNotes }: IProps): ReactElement[] {
-    const strings = []
+  return ({ frets, startNotes }: IProps): ReactElement[] => {
+    const
+      cacheKey = getCacheKey({ frets, startNotes }),
+      inCache = cache.get(cacheKey),
+      strings = []
+
+    if (inCache) return inCache
 
     for (let i = 0; i < 6; i++) {
       const
@@ -67,20 +71,16 @@ class Guitar extends React.Component<IProps> {
       strings.push(<div key={i} className='guitar__string'>{cells}</div>)
     }
 
+    cache.set(cacheKey, strings)
+
     return strings
   }
+})()
 
-  render() {
-    const
-      { frets, startNotes } = this.props,
-      inner = this.getMarkup({ frets, startNotes })
-
-    return (
-      <div className="guitar">
-        {inner}
-      </div>
-    )
-  }
-}
+export const Guitar: React.FC<IProps> = ({ frets, startNotes }) => (
+  <div className="guitar">
+    {getMarkup({ frets, startNotes })}
+  </div>
+)
 
 export default Guitar

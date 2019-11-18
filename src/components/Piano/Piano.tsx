@@ -3,7 +3,6 @@ import './Piano.scss'
 import { NOTES } from '../../constants'
 import Note from '../Note/NoteContainer'
 import { INote } from '../../types/audio'
-import { memoize } from 'decko'
 
 const Key: React.FC<INote> = ({ name, octave }) => {
   const note = {
@@ -25,12 +24,20 @@ interface IProps {
   startNote: INote,
 }
 
-class Piano extends React.Component<IProps> {
-  @memoize
-  getMarkup({ startNote, octaves }: IProps): ReactElement[] {
+const getMarkup = (() => {
+  const
+    cache = new Map(),
+    getCacheKey = ({ startNote, octaves }: IProps): string =>
+      `${octaves}.${startNote.name}.${startNote.octave}`
+
+  return ({ startNote, octaves }: IProps): ReactElement[] => {
     const
+      cacheKey = getCacheKey({ startNote, octaves }),
+      inCache = cache.get(cacheKey),
       keys = [],
       keysCount = 12 * octaves
+
+    if (inCache) return inCache
 
     let octave = startNote.octave || 2
 
@@ -48,18 +55,14 @@ class Piano extends React.Component<IProps> {
       note.name = NOTES[newNoteIndex]
     }
 
+    cache.set(cacheKey, keys)
+
     return keys
   }
+})()
 
-  render() {
-    const
-      { octaves, startNote } = this.props,
-      inner = this.getMarkup({ octaves, startNote })
-
-    return (
-      <div className="piano">{inner}</div>
-    )
-  }
-}
+export const Piano: React.FC<IProps> = ({ octaves, startNote }) => (
+  <div className="piano">{getMarkup({ octaves, startNote })}</div>
+)
 
 export default Piano
