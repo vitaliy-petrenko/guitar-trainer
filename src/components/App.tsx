@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './App.scss'
 import audioService from '../audioCore'
 import SidebarContainer from './Sidebar/SidebarContainer'
@@ -13,30 +13,28 @@ export interface IProps {
   setPlayingNote: (note: INote) => void,
 }
 
-export default class App extends React.Component<IProps> {
-  componentDidMount() {
+const App: React.FC<IProps> = ({ isMicActive, setPlayingNote }) => {
+  useEffect(() => {
     audioService.on('notesDetected', (notesData: INote[] = []) => {
       const
         [note] = notesData,
-        setter = this.props.setPlayingNote
+        setter = setPlayingNote
 
       typeof setter === 'function' && setter(note)
     })
-  }
+  })
 
-  render() {
-    const { isMicActive } = this.props
-
-    return (
-      <div className='application'>
-        <ThemeProvider theme={theme}>
-          <Layout
-            Sidebar={SidebarContainer}
-            Main={MainContainer}
-            isMicActive={isMicActive}
-          />
-        </ThemeProvider>
-      </div>
-    )
-  }
+  return (
+    <div className='application'>
+      <ThemeProvider theme={theme}>
+        <Layout
+          Sidebar={SidebarContainer}
+          Main={MainContainer}
+          isMicActive={isMicActive}
+        />
+      </ThemeProvider>
+    </div>
+  )
 }
+
+export default App
