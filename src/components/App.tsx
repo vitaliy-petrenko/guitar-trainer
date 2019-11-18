@@ -1,12 +1,12 @@
-import React from 'react';
-import './App.scss';
-import audioService from '../audioCore';
-import SidebarContainer from './Sidebar/SidebarContainer';
-import MainContainer from './MainContainer';
-import { ThemeProvider } from '@material-ui/core/styles';
-import theme from '../theme';
-import Layout from './Layout';
-import { INote } from '../types/audio';
+import React from 'react'
+import './App.scss'
+import audioService from '../audioCore'
+import SidebarContainer from './Sidebar/SidebarContainer'
+import MainContainer from './MainContainer'
+import { ThemeProvider } from '@material-ui/core/styles'
+import theme from '../theme'
+import Layout from './Layout'
+import { INote } from '../types/audio'
 
 export interface IProps {
   isMicActive: boolean,
@@ -18,14 +18,14 @@ export default class App extends React.Component<IProps> {
     audioService.on('notesDetected', (notesData: INote[] = []) => {
       const
         [note] = notesData,
-        setter = this.props.setPlayingNote;
+        setter = this.props.setPlayingNote
 
-      typeof setter === 'function' && setter(note);
-    });
+      typeof setter === 'function' && setter(note)
+    })
   }
 
   render() {
-    const { isMicActive } = this.props;
+    const { isMicActive } = this.props
 
     return (
       <div className='application'>
@@ -37,6 +37,6 @@ export default class App extends React.Component<IProps> {
           />
         </ThemeProvider>
       </div>
-    );
+    )
   }
 }

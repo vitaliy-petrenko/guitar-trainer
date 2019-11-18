@@ -20,11 +20,11 @@ $blackKeyWidth: 32px;
   }
 
   //black keys
-  &:nth-child(12n + 2),
-  &:nth-child(12n + 4),
-  &:nth-child(12n + 7),
-  &:nth-child(12n + 9),
-  &:nth-child(12n + 11) {
+  &[data-name='C#'],
+  &[data-name='D#'],
+  &[data-name='F#'],
+  &[data-name='G#'],
+  &[data-name='A#'] {
     position: relative;
     flex: 0;
     z-index: 2;

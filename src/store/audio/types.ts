@@ -1,5 +1,5 @@
-import { INote } from '../../types/audio';
-import { IActionBase } from '../../types/common';
+import { INote } from '../../types/audio'
+import { IActionBase } from '../../types/common'
 
 export interface ISwitchMicAction extends IActionBase {
   payload: boolean,

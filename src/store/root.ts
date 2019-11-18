@@ -1,6 +1,6 @@
-import { combineReducers } from 'redux';
-import { guitarOpenStrings, isMicActive, pianoStartNote, playingNote, selectedScale } from './audio/reducers';
-import { INote, IPlayingNote, ISelectedScale, TGuitarOpenStrings } from '../types/audio';
+import { combineReducers } from 'redux'
+import { guitarOpenStrings, isMicActive, pianoStartNote, playingNote, selectedScale } from './audio/reducers'
+import { INote, IPlayingNote, ISelectedScale, TGuitarOpenStrings } from '../types/audio'
 
 export interface IStore {
   playingNote: IPlayingNote,
@@ -16,4 +16,4 @@ export default combineReducers({
   guitarOpenStrings,
   pianoStartNote,
   selectedScale,
-});
+})

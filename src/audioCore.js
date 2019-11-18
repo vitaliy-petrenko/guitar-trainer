@@ -1,26 +1,26 @@
-import EventEmitter from 'wolfy87-eventemitter';
-import { NOTES } from './constants';
+import EventEmitter from 'wolfy87-eventemitter'
+import { NOTES } from './constants'
 
 class AudioService extends EventEmitter {
-  middleA = 440;
-  semitone = 69;
-  bufferSize = 8192;
+  middleA = 440
+  semitone = 69
+  bufferSize = 8192
 
   constructor() {
-    super();
+    super()
 
-    this._initGetUserMedia();
+    this._initGetUserMedia()
   }
 
   _initGetUserMedia() {
-    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    window.AudioContext = window.AudioContext || window.webkitAudioContext
     if (!window.AudioContext) {
-      return alert('AudioContext not supported');
+      return alert('AudioContext not supported')
     }
 
     // Older browsers might not implement mediaDevices at all, so we set an empty object first
     if (navigator.mediaDevices === undefined) {
-      navigator.mediaDevices = {};
+      navigator.mediaDevices = {}
     }
 
     // Some browsers partially implement mediaDevices. We can't just assign an object
@@ -29,17 +29,17 @@ class AudioService extends EventEmitter {
     if (navigator.mediaDevices.getUserMedia === undefined) {
       navigator.mediaDevices.getUserMedia = function (constraints) {
         // First get ahold of the legacy getUserMedia, if present
-        const getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+        const getUserMedia = navigator.webkitGetUserMedia || navigator.mozGetUserMedia
 
         // Some browsers just don't implement it - return a rejected promise with an error
         // to keep a consistent interface
         if (!getUserMedia) {
-          alert('getUserMedia is not implemented in this browser');
+          alert('getUserMedia is not implemented in this browser')
         }
 
         // Otherwise, wrap the call to the old navigator.getUserMedia with a Promise
         return new Promise(function (resolve, reject) {
-          getUserMedia.call(navigator, constraints, resolve, reject);
+          getUserMedia.call(navigator, constraints, resolve, reject)
         })
       }
     }
@@ -49,13 +49,13 @@ class AudioService extends EventEmitter {
     navigator.mediaDevices
       .getUserMedia({ audio: true })
       .then(stream => {
-        this.audioContext.createMediaStreamSource(stream).connect(this.analyser);
-        this.analyser.connect(this.scriptProcessor);
-        this.scriptProcessor.connect(this.audioContext.destination);
+        this.audioContext.createMediaStreamSource(stream).connect(this.analyser)
+        this.analyser.connect(this.scriptProcessor)
+        this.scriptProcessor.connect(this.audioContext.destination)
 
         this.scriptProcessor.addEventListener('audioprocess', event => {
 
-          const frequency = this.pitchDetector.do(event.inputBuffer.getChannelData(0));
+          const frequency = this.pitchDetector.do(event.inputBuffer.getChannelData(0))
 
           if (frequency) {
             const
@@ -66,28 +66,28 @@ class AudioService extends EventEmitter {
                 cents: this.getCents(frequency, note),
                 octave: Math.floor(note / 12) - 1,
                 frequency: frequency,
-              };
+              }
 
             if (note >= 30) {
-              this.emit('notesDetected', [noteData]);
+              this.emit('notesDetected', [noteData])
             }
           }
-        });
+        })
       })
       .catch(function (error) {
-        alert(error.name + ': ' + error.message);
-      });
+        alert(error.name + ': ' + error.message)
+      })
   }
 
   init() {
-    this.audioContext = new window.AudioContext();
-    this.analyser = this.audioContext.createAnalyser();
-    this.scriptProcessor = this.audioContext.createScriptProcessor(this.bufferSize);
+    this.audioContext = new window.AudioContext()
+    this.analyser = this.audioContext.createAnalyser()
+    this.scriptProcessor = this.audioContext.createScriptProcessor(this.bufferSize)
 
     window.Aubio().then(aubio => {
-      this.pitchDetector = new aubio.Pitch('default', this.bufferSize, 1, this.audioContext.sampleRate);
-      this.startRecord();
-    });
+      this.pitchDetector = new aubio.Pitch('default', this.bufferSize, 1, this.audioContext.sampleRate)
+      this.startRecord()
+    })
   }
 
   /**
@@ -97,8 +97,8 @@ class AudioService extends EventEmitter {
    * @returns {number}
    */
   getNote(frequency) {
-    const note = 12 * (Math.log(frequency / this.middleA) / Math.log(2));
-    return Math.round(note) + this.semitone;
+    const note = 12 * (Math.log(frequency / this.middleA) / Math.log(2))
+    return Math.round(note) + this.semitone
   }
 
   /**
@@ -108,7 +108,7 @@ class AudioService extends EventEmitter {
    * @returns {number}
    */
   getStandardFrequency(note) {
-    return this.middleA * Math.pow(2, (note - this.semitone) / 12);
+    return this.middleA * Math.pow(2, (note - this.semitone) / 12)
   }
 
   /**
@@ -129,18 +129,18 @@ class AudioService extends EventEmitter {
    */
   play(frequency) {
     if (!this.oscillator) {
-      this.oscillator = this.audioContext.createOscillator();
-      this.oscillator.connect(this.audioContext.destination);
-      this.oscillator.start();
+      this.oscillator = this.audioContext.createOscillator()
+      this.oscillator.connect(this.audioContext.destination)
+      this.oscillator.start()
     }
 
-    this.oscillator.frequency.value = frequency;
+    this.oscillator.frequency.value = frequency
   }
 
   stop() {
-    this.oscillator.stop();
-    this.oscillator = null;
+    this.oscillator.stop()
+    this.oscillator = null
   }
 }
 
-export default new AudioService();
+export default new AudioService()

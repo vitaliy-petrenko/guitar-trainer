@@ -1,25 +1,25 @@
-import React from 'react';
-import './Tuner.scss';
-import Note from '../Note/Note';
-import { IPlayingNote } from '../../types/audio';
+import React from 'react'
+import './Tuner.scss'
+import Note from '../Note/Note'
+import { IPlayingNote } from '../../types/audio'
 
-const REASONABLE_DELTA = 6;
+const REASONABLE_DELTA = 6
 
 interface ITunerArrow {
   isActive: boolean
 }
 
 const Arrow: React.FC<ITunerArrow> = ({ isActive }) => {
-  const classNames = ['tuner__arrow'];
+  const classNames = ['tuner__arrow']
 
   if (isActive) {
-    classNames.push('is-active');
+    classNames.push('is-active')
   }
 
   return (
     <div className={classNames.join(' ')}/>
-  );
-};
+  )
+}
 
 interface IProps {
   playingNote: IPlayingNote
@@ -42,7 +42,7 @@ const Tuner: React.FC<IProps> = ({ playingNote }) => {
         <Arrow isActive={playingNote.cents > REASONABLE_DELTA}/>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Tuner;
+export default Tuner

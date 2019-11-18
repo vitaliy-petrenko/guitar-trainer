@@ -1,52 +1,65 @@
-import React from 'react';
-import './Piano.scss';
-import { NOTES } from '../../constants';
-import Note from '../Note/NoteContainer';
-import { INote } from '../../types/audio';
+import React, { ReactElement } from 'react'
+import './Piano.scss'
+import { NOTES } from '../../constants'
+import Note from '../Note/NoteContainer'
+import { INote } from '../../types/audio'
+import { memoize } from 'decko'
 
 const Key: React.FC<INote> = ({ name, octave }) => {
   const note = {
     name,
     octave,
-  };
+  }
 
   return (
-    <div className="piano__key">
+    <div className="piano__key" data-name={name}>
       <div className="piano__note">
         <Note {...note}/>
       </div>
     </div>
-  );
-};
+  )
+}
 
 interface IProps {
   octaves: number,
   startNote: INote,
 }
 
-const Piano: React.FC<IProps> = ({ octaves = 3, startNote }) => {
-  const
-    keys = [],
-    keysCount = 12 * octaves;
-
-  let octave = startNote.octave || 2;
-
-  for (let i = 0, note = { ...startNote }; i < keysCount; i++) {
+class Piano extends React.Component<IProps> {
+  @memoize
+  getMarkup({ startNote, octaves }: IProps): ReactElement[] {
     const
-      noteIndex = NOTES.indexOf(note.name);
+      keys = [],
+      keysCount = 12 * octaves
 
-    keys.push(<Key key={i} name={note.name} octave={octaves === 1 ? null : octave}/>);
+    let octave = startNote.octave || 2
 
-    if (!~noteIndex) continue;
+    for (let i = 0, note = { ...startNote }; i < keysCount; i++) {
+      const
+        noteIndex = NOTES.indexOf(note.name)
 
-    const newNoteIndex = (noteIndex + 1) % NOTES.length;
+      keys.push(<Key key={i} name={note.name} octave={octaves === 1 ? null : octave}/>)
 
-    if (newNoteIndex === 0) octave++;
-    note.name = NOTES[newNoteIndex];
+      if (!~noteIndex) continue
+
+      const newNoteIndex = (noteIndex + 1) % NOTES.length
+
+      if (newNoteIndex === 0) octave++
+      note.name = NOTES[newNoteIndex]
+    }
+
+    return keys
   }
 
-  return <div className="piano">{keys}</div>;
-};
+  render() {
+    const
+      { octaves, startNote } = this.props,
+      inner = this.getMarkup({ octaves, startNote })
 
+    return (
+      <div className="piano">{inner}</div>
+    )
+  }
+}
 
-export default Piano;
+export default Piano

@@ -1,6 +1,6 @@
-import React from 'react';
-import { makeStyles, Paper } from '@material-ui/core';
-import Heading from './Heading';
+import React from 'react'
+import { makeStyles, Paper } from '@material-ui/core'
+import Heading from './Heading'
 
 const
   useStyles = makeStyles(theme => ({
@@ -8,14 +8,14 @@ const
       padding: theme.spacing(2),
       color: theme.palette.text.secondary,
     },
-  }));
+  }))
 
 export interface IProps {
   title?: string,
 }
 
 const SidebarItem: React.FC<IProps> = ({ title, children }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <div className="sidebar__item">
@@ -28,7 +28,7 @@ const SidebarItem: React.FC<IProps> = ({ title, children }) => {
         {children}
       </Paper>
     </div>
-  );
-};
+  )
+}
 
-export default SidebarItem;
+export default SidebarItem

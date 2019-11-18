@@ -1,8 +1,8 @@
-import React from 'react';
-import { Grid } from '@material-ui/core';
-import Select, { ISelectOption, TSelectValue } from './Select';
-import { ISelectedScale } from '../../types/audio';
-import { NOTES, SCALES_NAMES } from '../../constants';
+import React from 'react'
+import { Grid } from '@material-ui/core'
+import Select, { ISelectOption, TSelectValue } from './Select'
+import { ISelectedScale } from '../../types/audio'
+import { NOTES, SCALES_NAMES } from '../../constants'
 
 export interface IProps {
   selectedScale: ISelectedScale,
@@ -13,9 +13,9 @@ export interface IProps {
 const scaleKeysOptions: ISelectOption[] = NOTES.map(note => ({
   name: note,
   value: note,
-}));
+}))
 
-const scalesOptions: ISelectOption[] = Object.entries(SCALES_NAMES).map(([key, name]) => ({ name, value: key }));
+const scalesOptions: ISelectOption[] = Object.entries(SCALES_NAMES).map(([key, name]) => ({ name, value: key }))
 
 const ScaleSettings: React.FC<IProps> = ({ selectedScale, onSelectKey, onSelectScale }) => {
   return (
@@ -37,7 +37,7 @@ const ScaleSettings: React.FC<IProps> = ({ selectedScale, onSelectKey, onSelectS
         />
       </Grid>
     </Grid>
-  );
-};
+  )
+}
 
-export default ScaleSettings;
+export default ScaleSettings

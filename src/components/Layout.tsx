@@ -1,10 +1,10 @@
-import React from 'react';
-import { Drawer, Fab, Hidden, makeStyles, Theme } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Settings';
-import CloseIcon from '@material-ui/icons/Close';
-import MicIcon from '@material-ui/icons/Mic';
+import React from 'react'
+import { Drawer, Fab, Hidden, makeStyles, Theme } from '@material-ui/core'
+import MenuIcon from '@material-ui/icons/Settings'
+import CloseIcon from '@material-ui/icons/Close'
+import MicIcon from '@material-ui/icons/Mic'
 
-const SIDEBAR_WIDTH = 240;
+const SIDEBAR_WIDTH = 240
 
 interface IProps {
   Sidebar: React.ComponentType,
@@ -49,26 +49,26 @@ const useStyles = makeStyles((theme: Theme) => ({
       paddingTop: theme.spacing(6),
     },
   },
-}));
+}))
 
 const Layout: React.FC<IProps> = ({ Sidebar, Main, isMicActive }) => {
   const
     classes = useStyles(),
     [mobileOpen, setMobileOpen] = React.useState(false),
     handleDrawerToggle = (): void => setMobileOpen(!mobileOpen),
-    drawer = <Sidebar/>;
+    drawer = <Sidebar/>
 
   let
     menuIcon,
-    showMicIcon = false;
+    showMicIcon = false
 
   if (mobileOpen) {
-    menuIcon = <CloseIcon/>;
+    menuIcon = <CloseIcon/>
   } else if (!isMicActive) {
-    menuIcon = <MicIcon/>;
-    showMicIcon = true;
+    menuIcon = <MicIcon/>
+    showMicIcon = true
   } else {
-    menuIcon = <MenuIcon/>;
+    menuIcon = <MenuIcon/>
   }
 
   return (
@@ -119,7 +119,7 @@ const Layout: React.FC<IProps> = ({ Sidebar, Main, isMicActive }) => {
         <Main/>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

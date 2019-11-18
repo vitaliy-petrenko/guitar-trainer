@@ -1,6 +1,6 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
-import React from 'react';
-import uuid from 'uuid';
+import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core'
+import React from 'react'
+import uuid from 'uuid'
 
 export type TSelectValue = string;
 
@@ -20,9 +20,9 @@ const SidebarSelect: React.FC<IProps> = ({ options, onSelect, selectedValue, tit
   const
     optionsElements = options.map(({ name, value }) => <MenuItem key={value} value={value}>{name}</MenuItem>),
     handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-      onSelect(event.target.value as string);
+      onSelect(event.target.value as string)
     },
-    id = uuid.v4();
+    id = uuid.v4()
 
   return (
     <FormControl fullWidth variant="filled">
@@ -37,7 +37,7 @@ const SidebarSelect: React.FC<IProps> = ({ options, onSelect, selectedValue, tit
         {optionsElements}
       </Select>
     </FormControl>
-  );
-};
+  )
+}
 
-export default SidebarSelect;
+export default SidebarSelect

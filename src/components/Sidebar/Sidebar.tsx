@@ -1,12 +1,12 @@
-import React from 'react';
-import './Sidebar.scss';
-import audioService from '../../audioCore';
-import ScaleSettings from './ScaleSettingsContainer';
-import Tuner from '../Tuner/Tuner';
-import StartRecording from './StartRecording';
-import SidebarItem from './SidebarItem';
-import { IPlayingNote } from '../../types/audio';
-import { Typography } from '@material-ui/core';
+import React from 'react'
+import './Sidebar.scss'
+import audioService from '../../audioCore'
+import ScaleSettings from './ScaleSettingsContainer'
+import Tuner from '../Tuner/Tuner'
+import StartRecording from './StartRecording'
+import SidebarItem from './SidebarItem'
+import { IPlayingNote } from '../../types/audio'
+import { Typography } from '@material-ui/core'
 
 export interface IProps {
   isMicActive: boolean,
@@ -19,9 +19,9 @@ const Sidebar: React.FC<IProps> = (
 ) => {
   const
     initAudio = () => {
-      switchMic(true);
-      audioService.init();
-    };
+      switchMic(true)
+      audioService.init()
+    }
 
   return (
     <div className='sidebar'>
@@ -45,8 +45,8 @@ const Sidebar: React.FC<IProps> = (
         </SidebarItem>
       </div>
     </div>
-  );
-};
+  )
+}
 
 
-export default Sidebar;
+export default Sidebar

@@ -1,7 +1,7 @@
-import Guitar from './Guitar/Guitar';
-import Piano from './Piano/Piano';
-import React from 'react';
-import { INote, ISelectedScale, TGuitarOpenStrings } from '../types/audio';
+import Guitar from './Guitar/Guitar'
+import Piano from './Piano/Piano'
+import React from 'react'
+import { INote, ISelectedScale, TGuitarOpenStrings } from '../types/audio'
 
 export interface IProps {
   guitarOpenStrings: TGuitarOpenStrings,
@@ -18,6 +18,6 @@ const Main: React.FC<IProps> = ({ guitarOpenStrings, pianoStartNote, selectedSca
       <Piano octaves={4} startNote={pianoStartNote}/>
     </div>
   </div>
-);
+)
 
-export default Main;
+export default Main

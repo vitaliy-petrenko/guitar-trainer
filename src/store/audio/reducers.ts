@@ -1,7 +1,7 @@
-import { ACTION_TYPES, NOTES, SCALES_KEYS } from '../../constants';
-import { generateScaleNotes } from '../../utils';
-import { INote, ISelectedScale, TGuitarOpenStrings } from '../../types/audio';
-import { ISelectScaleAction, ISelectScaleKeyAction, ISetPlayingNoteAction, ISwitchMicAction } from './types';
+import { ACTION_TYPES, NOTES, SCALES_KEYS } from '../../constants'
+import { generateScaleNotes } from '../../utils'
+import { INote, ISelectedScale, TGuitarOpenStrings } from '../../types/audio'
+import { ISelectScaleAction, ISelectScaleKeyAction, ISetPlayingNoteAction, ISwitchMicAction } from './types'
 
 const INITIAL_STATE = {
   playingNote: {
@@ -25,25 +25,25 @@ const INITIAL_STATE = {
     { name: 'A', octave: 2 },
     { name: 'E', octave: 2 },
   ]
-};
+}
 
 export const playingNote =
   (state: INote = INITIAL_STATE.playingNote, action: ISetPlayingNoteAction) => {
     if (action.type === ACTION_TYPES.SET_PLAYING_NOTE) {
-      return action.payload;
+      return action.payload
     }
 
-    return state;
-  };
+    return state
+  }
 
 export const isMicActive =
   (state: boolean = INITIAL_STATE.isMicActive, action: ISwitchMicAction) => {
     if (action.type === ACTION_TYPES.SET_MIC_LISTEN) {
-      return action.payload;
+      return action.payload
     }
 
-    return state;
-  };
+    return state
+  }
 
 export const selectedScale =
   (state: ISelectedScale = { ...INITIAL_STATE.scale }, action: ISelectScaleAction | ISelectScaleKeyAction): ISelectedScale => {
@@ -52,36 +52,36 @@ export const selectedScale =
       case ACTION_TYPES.SET_SCALE_NAME: {
         const
           { key } = state,
-          newName = action.payload;
+          newName = action.payload
 
         return {
           key,
           name: newName,
           notes: generateScaleNotes(newName, key)
-        };
+        }
       }
 
       case ACTION_TYPES.SET_SCALE_KEY: {
         const
           { name } = state,
-          newKey = action.payload;
+          newKey = action.payload
 
         return {
           key: newKey,
           name,
           notes: generateScaleNotes(name, newKey)
-        };
+        }
       }
 
       default:
-        return state;
+        return state
     }
-  };
+  }
 
 export const pianoStartNote = (state: INote = INITIAL_STATE.pianoStartNote): INote => {
-  return state;
-};
+  return state
+}
 
 export const guitarOpenStrings = (state: TGuitarOpenStrings = INITIAL_STATE.guitarOpenStrings): TGuitarOpenStrings => {
-  return state;
-};
+  return state
+}
