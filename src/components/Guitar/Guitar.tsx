@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react'
 import './Guitar.scss'
 import Note from '../Note/NoteContainer'
 import { NOTES } from '../../constants'
-import { INote, TGuitarOpenStrings } from '../../types/audio'
 
 interface ICell {
   note: INote,

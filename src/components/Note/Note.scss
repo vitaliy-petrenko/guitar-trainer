@@ -15,7 +15,7 @@ $border: 2px;
   opacity: .7;
   color: #000;
   font-weight: 700;
-  transition: transform .1s;
+  transition: transform .5s, opacity .5s;
   transform: scale(.8);
   border: $border solid transparent;
   box-shadow: 0 0 3px rgba(0, 0, 0, .2);
@@ -24,6 +24,8 @@ $border: 2px;
     background: #7c7c7b;
     color: #000;
     opacity: 0;
+    transform: scale(0);
+    transition: transform .8s, opacity .8s;
 
     &:after {
       content: '';

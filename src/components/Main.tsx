@@ -1,7 +1,6 @@
 import Guitar from './Guitar/Guitar'
 import Piano from './Piano/Piano'
 import React from 'react'
-import { INote, ISelectedScale, TGuitarOpenStrings } from '../types/audio'
 
 export interface IProps {
   guitarOpenStrings: TGuitarOpenStrings,

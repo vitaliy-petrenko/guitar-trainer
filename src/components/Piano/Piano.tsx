@@ -2,7 +2,6 @@ import React, { ReactElement } from 'react'
 import './Piano.scss'
 import { NOTES } from '../../constants'
 import Note from '../Note/NoteContainer'
-import { INote } from '../../types/audio'
 
 const Key: React.FC<INote> = ({ name, octave }) => {
   const note = {

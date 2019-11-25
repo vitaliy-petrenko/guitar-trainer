@@ -2,7 +2,6 @@ import { connect } from 'react-redux'
 import { Dispatch } from 'redux'
 import App, { IProps } from './App'
 import { setPlayingNote } from '../store/audio/actions'
-import { INote } from '../types/audio'
 import { IStore } from '../store/root'
 
 type StateProps = Pick<IProps, 'isMicActive'>;

@@ -4,9 +4,7 @@ import { IStore } from '../store/root'
 
 type StateProps = IProps;
 
-const mapStateToProps = (
-  { guitarOpenStrings, pianoStartNote, selectedScale }: IStore
-): StateProps => {
+const mapStateToProps = ({ guitarOpenStrings, pianoStartNote, selectedScale }: IStore): StateProps => {
   return { guitarOpenStrings, pianoStartNote, selectedScale }
 }
 

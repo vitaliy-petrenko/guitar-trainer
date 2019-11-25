@@ -1,0 +1,4 @@
+interface IActionBase {
+  type: string
+}
+

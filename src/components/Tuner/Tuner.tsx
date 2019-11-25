@@ -1,7 +1,6 @@
 import React from 'react'
 import './Tuner.scss'
 import Note from '../Note/Note'
-import { IPlayingNote } from '../../types/audio'
 
 const REASONABLE_DELTA = 6
 

@@ -1,6 +1,4 @@
 import { ACTION_TYPES } from '../../constants'
-import { INote } from '../../types/audio'
-import { ISelectScaleAction, ISelectScaleKeyAction, ISetPlayingNoteAction, ISwitchMicAction } from './types'
 
 export const switchMic = (isMicActive: boolean): ISwitchMicAction => ({
   type: ACTION_TYPES.SET_MIC_LISTEN,

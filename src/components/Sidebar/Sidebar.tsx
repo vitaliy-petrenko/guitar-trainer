@@ -5,7 +5,6 @@ import ScaleSettings from './ScaleSettingsContainer'
 import Tuner from '../Tuner/Tuner'
 import StartRecording from './StartRecording'
 import SidebarItem from './SidebarItem'
-import { IPlayingNote } from '../../types/audio'
 import { Typography } from '@material-ui/core'
 
 export interface IProps {

@@ -1,7 +1,5 @@
 import { ACTION_TYPES, NOTES, SCALES_KEYS } from '../../constants'
 import { generateScaleNotes } from '../../utils'
-import { INote, ISelectedScale, TGuitarOpenStrings } from '../../types/audio'
-import { ISelectScaleAction, ISelectScaleKeyAction, ISetPlayingNoteAction, ISwitchMicAction } from './types'
 
 const INITIAL_STATE = {
   playingNote: {

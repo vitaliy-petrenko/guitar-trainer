@@ -1,6 +1,5 @@
 import React from 'react'
 import './Note.scss'
-import { INote } from '../../types/audio'
 
 export interface IProps extends INote {
   isActive?: boolean,

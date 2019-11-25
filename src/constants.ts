@@ -1,5 +1,3 @@
-import { IScaleKeys, IScalesIntervals, IScalesTranslations } from './types/audio'
-
 export const NOTES: Array<string> = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 
 export const DIATONIC_SCALES = {
