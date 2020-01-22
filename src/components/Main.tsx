@@ -1,5 +1,5 @@
-import Guitar from './Guitar/Guitar'
-import Piano from './Piano/Piano'
+import Guitar from './Guitar'
+import Piano from './Piano'
 import React from 'react'
 
 export interface IProps {

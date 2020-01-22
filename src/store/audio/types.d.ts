@@ -1,5 +1,4 @@
 interface ISwitchMicAction extends IActionBase {
-  payload: boolean,
 }
 
 interface ISetPlayingNoteAction extends IActionBase {

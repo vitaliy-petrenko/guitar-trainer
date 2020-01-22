@@ -10,7 +10,7 @@ interface ICell {
 const Cell: React.FC<ICell> = ({ note }) => (
   <div className='guitar__cell'>
     <div className="guitar__note">
-      <Note {...note}/>
+      <Note {...note} />
     </div>
   </div>
 )
@@ -18,7 +18,7 @@ const Cell: React.FC<ICell> = ({ note }) => (
 const Zero: React.FC<ICell> = ({ note }) => (
   <div className="guitar__zero">
     <div className="guitar__note">
-      <Note {...note}/>
+      <Note {...note} />
     </div>
   </div>
 )
@@ -61,9 +61,9 @@ const getMarkup = (() => {
           }
 
         if (j === 0) {
-          cells.push(<Zero note={note} key={j}/>)
+          cells.push(<Zero note={note} key={j} />)
         } else {
-          cells.push(<Cell note={note} key={j}/>)
+          cells.push(<Cell note={note} key={j} />)
         }
       }
 

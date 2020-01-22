@@ -37,7 +37,7 @@ export const playingNote =
 export const isMicActive =
   (state: boolean = INITIAL_STATE.isMicActive, action: ISwitchMicAction) => {
     if (action.type === ACTION_TYPES.SET_MIC_LISTEN) {
-      return action.payload
+      return !state
     }
 
     return state

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Grid } from '@material-ui/core'
-import Select, { ISelectOption, TSelectValue } from './Select'
+import Select, { ISelectOption, TSelectValue } from '../Select/Select'
 import { NOTES, SCALES_NAMES } from '../../constants'
 
 export interface IProps {

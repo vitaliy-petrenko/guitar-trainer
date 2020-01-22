@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './App.scss'
 import audioService from '../audioCore'
-import SidebarContainer from './Sidebar/SidebarContainer'
+import Sidebar from './Sidebar'
 import MainContainer from './MainContainer'
 import { ThemeProvider } from '@material-ui/core/styles'
 import theme from '../theme'
@@ -27,7 +27,7 @@ const App: React.FC<IProps> = ({ isMicActive, setPlayingNote }) => {
     <div className='application'>
       <ThemeProvider theme={theme}>
         <Layout
-          Sidebar={SidebarContainer}
+          Sidebar={Sidebar}
           Main={MainContainer}
           isMicActive={isMicActive}
         />
