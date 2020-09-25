@@ -1,3 +1,8 @@
+**New version of application is in progress now.**
+
+
+
+
 **Dear guitar player,**
 
 If you have problems with learning notes on the fretboard, you are not alone. 
